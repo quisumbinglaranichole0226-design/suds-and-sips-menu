@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Suds & Sips Café Menu</title>
+
+  <style>
+    :root {
+      --cream: #f8f1e7;
+      --paper: #fffaf3;
+      --brown: #4b2f24;
+      --brown-soft: #765344;
+      --terracotta: #c96f46;
+      --terracotta-light: #ead0bd;
+      --sage: #7f8b72;
+      --line: #ddc9b9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.5;
+    }
+
+    .hero {
+      padding: 48px 20px 30px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top right, rgba(201,111,70,.16), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(127,139,114,.13), transparent 28%),
+        var(--cream);
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 10vw, 72px);
+      line-height: 0.95;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .tagline {
+      font-size: 15px;
+      color: var(--brown-soft);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(248, 241, 231, 0.96);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 16px;
+      max-width: 950px;
+      margin: 0 auto;
+      scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      color: var(--brown);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav a:hover {
+      background: var(--brown);
+      color: white;
+    }
+
+    main {
+      width: min(920px, calc(100% - 28px));
+      margin: 28px auto 60px;
+    }
+
+    .intro-card {
+      background: var(--brown);
+      color: white;
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .intro-card p {
+      color: #f5e9df;
+      margin-top: 7px;
+    }
+
+    .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px 20px;
+      margin: 18px 0;
+      box-shadow: 0 10px 28px rgba(75, 47, 36, 0.06);
+      scroll-margin-top: 90px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 8px;
+    }
+
+    .section h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      font-weight: 500;
+    }
+
+    .section-kicker {
+      color: var(--terracotta);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .section-description {
+      color: var(--brown-soft);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .menu-list {
+      display: grid;
+      gap: 4px;
+    }
+
+    .menu-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--line);
+      align-items: start;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-info {
+      min-width: 0;
+    }
+
+    .item-name {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .item-note {
+      margin-top: 2px;
+      color: var(--brown-soft);
+      font-size: 13px;
+    }
+
+    .price {
+      font-weight: 800;
+      white-space: nowrap;
+      font-size: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-left: 7px;
+      padding: 3px 8px;
+      background: var(--terracotta);
+      color: white;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      border-radius: 999px;
+      vertical-align: middle;
+    }
+
+    .plant {
+      color: var(--sage);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      background: #fffdf9;
+    }
+
+    .mini-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .note-box {
+      margin-top: 22px;
+      background: var(--terracotta-light);
+      padding: 15px;
+      border-radius: 16px;
+      font-size: 13px;
+      color: var(--brown);
+    }
+
+    footer {
+      background: var(--brown);
+      color: white;
+      text-align: center;
+      padding: 34px 20px 44px;
+    }
+
+    footer h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #eadfd8;
+      font-size: 14px;
+    }
+
+    .footer-small {
+      margin-top: 18px;
+      opacity: .8;
+      font-size: 12px;
+    }
+
+    @media (min-width: 720px) {
+      main {
+        margin-top: 36px;
+      }
+
+      .section {
+        padding: 34px;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .menu-item {
+        padding: 13px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="eyebrow">Coffee • Comfort • Good Vibes</div>
+    <h1>Suds & Sips Café</h1>
+    <p class="tagline">
+      Your neighborhood spot for coffee, creamy favorites, refreshing drinks,
+      and all-day comfort food.
+    </p>
+  </header>
+
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a href="#espresso">Espresso</a>
+      <a href="#non-coffee">Non-Coffee</a>
+      <a href="#sea-salt">Sea Salt Sips</a>
+      <a href="#quenchers">Quenchers</a>
+      <a href="#food">Food</a>
+      <a href="#addons">Add-Ons</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <section class="intro-card">
+      <strong>Welcome to Suds & Sips.</strong>
+      <p>
+        Take your time, pick your favorite, and enjoy something good.
+      </p>
+    </section>
+
+    <section class="section" id="espresso">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Coffee</div>
+          <h2>Espresso</h2>
+        </div>
+        <span>☕</span>
+      </div>
+
+      <p class="section-description">
+        Espresso-based café favorites, from classic Americano to our sweeter signature drinks.
+      </p>
+
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Americano</div>
+          </div>
+          <div class="price">₱120</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Café Latte</div>
+          </div>
+          <div class="price">₱160</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Cappuccino</div>
+          </div>
+          <div class="price">₱160</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">
+              Spanish Latte
+              <span class="badge">Popular</span>
+            </div>
+          </div>
+          <div class="price">₱165</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Vanilla Latte</div>
+          </div>
+          <div class="price">₱165</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Caramel Latte</div>
+          </div>
+          <div class="price">₱165</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Salted Caramel</div>
+          </div>
+          <div class="price">₱165</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Mocha Latte</div>
+          </div>
+          <div class="price">₱165</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Ube Espresso</div>
+          </div>
+          <div class="price">₱165</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Dirty Matcha</div>
+          </div>
+          <div class="price">₱170</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name plant">Oat Beam 🌿</div>
+          </div>
+          <div class="price">₱180</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name plant">Vanilla Bean Oat 🌿</div>
+          </div>
+          <div class="price">₱180</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="non-coffee">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Something Different</div>
+          <h2>Non-Coffee</h2>
+        </div>
+        <span>🍵</span>
+      </div>
+
+      <p class="section-description">
+        Creamy, colorful, and caffeine-optional café favorites.
+      </p>
+
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="item-name">Golden Ticket</div>
+          <div class="price">₱150</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name plant">Choco Hazelnut (Oat-Based) 🌿</div>
+          <div class="price">₱180</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Strawberry</div>
+          <div class="price">₱160</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Matcha</div>
+          <div class="price">₱165</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Berry Matcha Cloud</div>
+          <div class="price">₱170</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Ube Latte</div>
+          <div class="price">₱150</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Ube Matcha Cloud</div>
+          <div class="price">₱170</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sea-salt">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Signature Favorites</div>
+          <h2>Sea Salt Sips</h2>
+        </div>
+        <span>〰️</span>
+      </div>
+
+      <p class="section-description">
+        Smooth and creamy drinks finished with a sea salt twist.
+      </p>
+
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="item-name">
+            Suds & Sips
+            <span class="badge">Signature</span>
+          </div>
+          <div class="price">₱180</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Vanilla Sips</div>
+          <div class="price">₱180</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Nutty Sips</div>
+          <div class="price">₱180</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name plant">Mokka Sips (Oat-Based) 🌿</div>
+          <div class="price">₱180</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Biscoff Latte</div>
+          <div class="price">₱180</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quenchers">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Cool & Refreshing</div>
+          <h2>Quenchers</h2>
+        </div>
+        <span>🍋</span>
+      </div>
+
+      <p class="section-description">
+        Bright, refreshing drinks for warm afternoons and easy hangouts.
+      </p>
+
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="item-name">Lemon Haze</div>
+          <div class="price">₱120</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Beetle Juice</div>
+          <div class="price">₱130</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Kiwi Lemonade</div>
+          <div class="price">₱140</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Kiuri Fizz</div>
+          <div class="price">₱140</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Ichigo</div>
+          <div class="price">₱140</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="food">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Hungry?</div>
+          <h2>Food</h2>
+        </div>
+        <span>🍳</span>
+      </div>
+
+      <p class="section-description">
+        Comfort food served all day.
+      </p>
+
+      <div class="two-column">
+
+        <div class="mini-card">
+          <h3>All Day Breakfast</h3>
+
+          <div class="menu-list">
+            <div class="menu-item">
+              <div class="item-name">Hungarian</div>
+              <div class="price">₱208</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-name">Hamonado Longganisa</div>
+              <div class="price">₱188</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-name">Corned Beef</div>
+              <div class="price">₱188</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-name">Tocino</div>
+              <div class="price">₱188</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-name">Beef Tapa</div>
+              <div class="price">₱188</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-name">Hungarian Hamonado</div>
+              <div class="price">₱258</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-name">Fried Chicken</div>
+              <div class="price">₱250</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <h3>Pasta</h3>
+
+          <div class="menu-list">
+            <div class="menu-item">
+              <div class="item-name">Carbonara</div>
+              <div class="price">₱199</div>
+            </div>
+          </div>
+
+          <div class="note-box">
+            Perfect with an iced latte or one of our signature Sea Salt Sips.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="addons">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Customize Your Drink</div>
+          <h2>Add-Ons</h2>
+        </div>
+        <span>＋</span>
+      </div>
+
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="item-name">Espresso</div>
+          <div class="price">₱50</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Sea Salt</div>
+          <div class="price">₱35</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="item-name">Oat Milk</div>
+          <div class="price">₱55</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h2>Suds & Sips Café</h2>
+    <p>Good drinks. Good food. Good vibes.</p>
+    <p class="footer-small">
+      Menu prices and availability may change without prior notice.
+    </p>
+  </footer>
+
+</body>
+</html>
