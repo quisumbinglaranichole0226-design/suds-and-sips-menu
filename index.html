@@ -8,14 +8,13 @@
 
   <style>
     :root {
-      --cream: #f8f1e7;
-      --paper: #fffaf3;
-      --brown: #4b2f24;
-      --brown-soft: #765344;
+      --cream: #f7efe5;
+      --paper: #fffaf4;
+      --brown: #4b3025;
+      --soft-brown: #7a5a4b;
       --terracotta: #c96f46;
-      --terracotta-light: #ead0bd;
-      --sage: #7f8b72;
-      --line: #ddc9b9;
+      --line: #e3d1c2;
+      --sage: #87917a;
     }
 
     * {
@@ -24,271 +23,179 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--cream);
       color: var(--brown);
-      line-height: 1.5;
+      min-height: 100vh;
     }
 
     .hero {
-      padding: 48px 20px 30px;
       text-align: center;
-      background:
-        radial-gradient(circle at top right, rgba(201,111,70,.16), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(127,139,114,.13), transparent 28%),
-        var(--cream);
+      padding: 55px 22px 35px;
     }
 
     .eyebrow {
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
       color: var(--terracotta);
-      margin-bottom: 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
       font-weight: 700;
+      margin-bottom: 12px;
     }
 
     h1 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 10vw, 72px);
-      line-height: 0.95;
-      margin-bottom: 14px;
+      font-size: clamp(42px, 12vw, 72px);
+      line-height: 1;
       font-weight: 500;
+      margin-bottom: 15px;
     }
 
     .tagline {
+      color: var(--soft-brown);
+      max-width: 480px;
+      margin: auto;
       font-size: 15px;
-      color: var(--brown-soft);
-      max-width: 520px;
-      margin: 0 auto;
+      line-height: 1.6;
     }
 
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(248, 241, 231, 0.96);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+    .menu-wrap {
+      width: min(700px, calc(100% - 28px));
+      margin: 0 auto 55px;
     }
 
-    .nav {
+    .menu-intro {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .menu-intro h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      font-size: 27px;
+      margin-bottom: 5px;
+    }
+
+    .menu-intro p {
+      font-size: 14px;
+      color: var(--soft-brown);
+    }
+
+    .categories {
+      display: grid;
+      gap: 14px;
+    }
+
+    .category {
       display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding: 12px 16px;
-      max-width: 950px;
-      margin: 0 auto;
-      scrollbar-width: none;
-    }
-
-    .nav::-webkit-scrollbar {
-      display: none;
-    }
-
-    .nav a {
-      flex: 0 0 auto;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
       text-decoration: none;
       color: var(--brown);
-      background: var(--paper);
-      border: 1px solid var(--line);
-      padding: 9px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(75, 48, 37, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .nav a:hover {
-      background: var(--brown);
-      color: white;
+    .category:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(75, 48, 37, 0.09);
     }
 
-    main {
-      width: min(920px, calc(100% - 28px));
-      margin: 28px auto 60px;
-    }
-
-    .intro-card {
-      background: var(--brown);
-      color: white;
-      border-radius: 24px;
-      padding: 24px;
-      margin-bottom: 24px;
-    }
-
-    .intro-card p {
-      color: #f5e9df;
-      margin-top: 7px;
-    }
-
-    .section {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 26px 20px;
-      margin: 18px 0;
-      box-shadow: 0 10px 28px rgba(75, 47, 36, 0.06);
-      scroll-margin-top: 90px;
-    }
-
-    .section-heading {
+    .category-left {
       display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 8px;
+      align-items: center;
+      gap: 16px;
     }
 
-    .section h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 32px;
-      font-weight: 500;
-    }
-
-    .section-kicker {
-      color: var(--terracotta);
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .section-description {
-      color: var(--brown-soft);
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .menu-list {
-      display: grid;
-      gap: 4px;
-    }
-
-    .menu-item {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      padding: 12px 0;
-      border-bottom: 1px dashed var(--line);
-      align-items: start;
-    }
-
-    .menu-item:last-child {
-      border-bottom: none;
-    }
-
-    .item-info {
-      min-width: 0;
-    }
-
-    .item-name {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .item-note {
-      margin-top: 2px;
-      color: var(--brown-soft);
-      font-size: 13px;
-    }
-
-    .price {
-      font-weight: 800;
-      white-space: nowrap;
-      font-size: 16px;
-    }
-
-    .badge {
-      display: inline-block;
-      margin-left: 7px;
-      padding: 3px 8px;
-      background: var(--terracotta);
-      color: white;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .7px;
-      border-radius: 999px;
-      vertical-align: middle;
-    }
-
-    .plant {
-      color: var(--sage);
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .mini-card {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: #fffdf9;
-    }
-
-    .mini-card h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 24px;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-
-    .note-box {
-      margin-top: 22px;
-      background: var(--terracotta-light);
-      padding: 15px;
+    .icon {
+      width: 52px;
+      height: 52px;
       border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+      background: #f2dfd1;
+      flex-shrink: 0;
+    }
+
+    .category:nth-child(2) .icon {
+      background: #e4e8dc;
+    }
+
+    .category:nth-child(3) .icon {
+      background: #ead8ca;
+    }
+
+    .category:nth-child(4) .icon {
+      background: #eee3bf;
+    }
+
+    .category:nth-child(5) .icon {
+      background: #e8ddd4;
+    }
+
+    .category h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .category p {
       font-size: 13px;
+      color: var(--soft-brown);
+      line-height: 1.4;
+    }
+
+    .arrow {
+      font-size: 22px;
+      color: var(--terracotta);
+      flex-shrink: 0;
+    }
+
+    .notice {
+      margin-top: 24px;
+      padding: 17px 19px;
+      border-radius: 18px;
+      background: #ead5c5;
       color: var(--brown);
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     footer {
+      text-align: center;
       background: var(--brown);
       color: white;
-      text-align: center;
-      padding: 34px 20px 44px;
+      padding: 30px 20px;
     }
 
     footer h2 {
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 500;
-      margin-bottom: 8px;
+      font-size: 23px;
+      margin-bottom: 7px;
     }
 
     footer p {
-      color: #eadfd8;
-      font-size: 14px;
+      color: #ebdfd7;
+      font-size: 13px;
     }
 
-    .footer-small {
-      margin-top: 18px;
-      opacity: .8;
-      font-size: 12px;
-    }
-
-    @media (min-width: 720px) {
-      main {
-        margin-top: 36px;
-      }
-
-      .section {
-        padding: 34px;
-      }
-
-      .two-column {
+    @media (min-width: 700px) {
+      .categories {
         grid-template-columns: 1fr 1fr;
       }
 
-      .menu-item {
-        padding: 13px 0;
+      .category:last-child {
+        grid-column: span 2;
       }
     }
   </style>
@@ -298,381 +205,90 @@
 
   <header class="hero">
     <div class="eyebrow">Coffee • Comfort • Good Vibes</div>
+
     <h1>Suds & Sips Café</h1>
+
     <p class="tagline">
-      Your neighborhood spot for coffee, creamy favorites, refreshing drinks,
-      and all-day comfort food.
+      Coffee, creamy favorites, refreshing drinks, and comfort food.
+      Pick a category and find your next favorite.
     </p>
   </header>
 
-  <div class="nav-wrap">
-    <nav class="nav">
-      <a href="#espresso">Espresso</a>
-      <a href="#non-coffee">Non-Coffee</a>
-      <a href="#sea-salt">Sea Salt Sips</a>
-      <a href="#quenchers">Quenchers</a>
-      <a href="#food">Food</a>
-      <a href="#addons">Add-Ons</a>
-    </nav>
-  </div>
+  <main class="menu-wrap">
 
-  <main>
+    <div class="menu-intro">
+      <h2>What are you craving?</h2>
+      <p>Tap a category to explore the menu.</p>
+    </div>
 
-    <section class="intro-card">
-      <strong>Welcome to Suds & Sips.</strong>
-      <p>
-        Take your time, pick your favorite, and enjoy something good.
-      </p>
-    </section>
+    <div class="categories">
 
-    <section class="section" id="espresso">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Coffee</div>
-          <h2>Espresso</h2>
-        </div>
-        <span>☕</span>
-      </div>
-
-      <p class="section-description">
-        Espresso-based café favorites, from classic Americano to our sweeter signature drinks.
-      </p>
-
-      <div class="menu-list">
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">Americano</div>
-          </div>
-          <div class="price">₱120</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">Café Latte</div>
-          </div>
-          <div class="price">₱160</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">Cappuccino</div>
-          </div>
-          <div class="price">₱160</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">
-              Spanish Latte
-              <span class="badge">Popular</span>
-            </div>
-          </div>
-          <div class="price">₱165</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">Vanilla Latte</div>
-          </div>
-          <div class="price">₱165</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">Caramel Latte</div>
-          </div>
-          <div class="price">₱165</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">Salted Caramel</div>
-          </div>
-          <div class="price">₱165</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">Mocha Latte</div>
-          </div>
-          <div class="price">₱165</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">Ube Espresso</div>
-          </div>
-          <div class="price">₱165</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name">Dirty Matcha</div>
-          </div>
-          <div class="price">₱170</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name plant">Oat Beam 🌿</div>
-          </div>
-          <div class="price">₱180</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name plant">Vanilla Bean Oat 🌿</div>
-          </div>
-          <div class="price">₱180</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="non-coffee">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Something Different</div>
-          <h2>Non-Coffee</h2>
-        </div>
-        <span>🍵</span>
-      </div>
-
-      <p class="section-description">
-        Creamy, colorful, and caffeine-optional café favorites.
-      </p>
-
-      <div class="menu-list">
-        <div class="menu-item">
-          <div class="item-name">Golden Ticket</div>
-          <div class="price">₱150</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name plant">Choco Hazelnut (Oat-Based) 🌿</div>
-          <div class="price">₱180</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Strawberry</div>
-          <div class="price">₱160</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Matcha</div>
-          <div class="price">₱165</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Berry Matcha Cloud</div>
-          <div class="price">₱170</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Ube Latte</div>
-          <div class="price">₱150</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Ube Matcha Cloud</div>
-          <div class="price">₱170</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="sea-salt">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Signature Favorites</div>
-          <h2>Sea Salt Sips</h2>
-        </div>
-        <span>〰️</span>
-      </div>
-
-      <p class="section-description">
-        Smooth and creamy drinks finished with a sea salt twist.
-      </p>
-
-      <div class="menu-list">
-        <div class="menu-item">
-          <div class="item-name">
-            Suds & Sips
-            <span class="badge">Signature</span>
-          </div>
-          <div class="price">₱180</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Vanilla Sips</div>
-          <div class="price">₱180</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Nutty Sips</div>
-          <div class="price">₱180</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name plant">Mokka Sips (Oat-Based) 🌿</div>
-          <div class="price">₱180</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Biscoff Latte</div>
-          <div class="price">₱180</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="quenchers">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Cool & Refreshing</div>
-          <h2>Quenchers</h2>
-        </div>
-        <span>🍋</span>
-      </div>
-
-      <p class="section-description">
-        Bright, refreshing drinks for warm afternoons and easy hangouts.
-      </p>
-
-      <div class="menu-list">
-        <div class="menu-item">
-          <div class="item-name">Lemon Haze</div>
-          <div class="price">₱120</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Beetle Juice</div>
-          <div class="price">₱130</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Kiwi Lemonade</div>
-          <div class="price">₱140</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Kiuri Fizz</div>
-          <div class="price">₱140</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="item-name">Ichigo</div>
-          <div class="price">₱140</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="food">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Hungry?</div>
-          <h2>Food</h2>
-        </div>
-        <span>🍳</span>
-      </div>
-
-      <p class="section-description">
-        Comfort food served all day.
-      </p>
-
-      <div class="two-column">
-
-        <div class="mini-card">
-          <h3>All Day Breakfast</h3>
-
-          <div class="menu-list">
-            <div class="menu-item">
-              <div class="item-name">Hungarian</div>
-              <div class="price">₱208</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="item-name">Hamonado Longganisa</div>
-              <div class="price">₱188</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="item-name">Corned Beef</div>
-              <div class="price">₱188</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="item-name">Tocino</div>
-              <div class="price">₱188</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="item-name">Beef Tapa</div>
-              <div class="price">₱188</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="item-name">Hungarian Hamonado</div>
-              <div class="price">₱258</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="item-name">Fried Chicken</div>
-              <div class="price">₱250</div>
-            </div>
+      <a class="category" href="espresso.html">
+        <div class="category-left">
+          <div class="icon">☕</div>
+          <div>
+            <h3>Espresso</h3>
+            <p>Classic coffee and signature lattes</p>
           </div>
         </div>
+        <div class="arrow">→</div>
+      </a>
 
-        <div class="mini-card">
-          <h3>Pasta</h3>
-
-          <div class="menu-list">
-            <div class="menu-item">
-              <div class="item-name">Carbonara</div>
-              <div class="price">₱199</div>
-            </div>
-          </div>
-
-          <div class="note-box">
-            Perfect with an iced latte or one of our signature Sea Salt Sips.
+      <a class="category" href="non-coffee.html">
+        <div class="category-left">
+          <div class="icon">🍵</div>
+          <div>
+            <h3>Non-Coffee</h3>
+            <p>Matcha, ube, strawberry and creamy favorites</p>
           </div>
         </div>
+        <div class="arrow">→</div>
+      </a>
 
-      </div>
-    </section>
-
-    <section class="section" id="addons">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Customize Your Drink</div>
-          <h2>Add-Ons</h2>
+      <a class="category" href="sea-salt-sips.html">
+        <div class="category-left">
+          <div class="icon">〰️</div>
+          <div>
+            <h3>Sea Salt Sips</h3>
+            <p>Our creamy signature sea salt drinks</p>
+          </div>
         </div>
-        <span>＋</span>
-      </div>
+        <div class="arrow">→</div>
+      </a>
 
-      <div class="menu-list">
-        <div class="menu-item">
-          <div class="item-name">Espresso</div>
-          <div class="price">₱50</div>
+      <a class="category" href="quenchers.html">
+        <div class="category-left">
+          <div class="icon">🍋</div>
+          <div>
+            <h3>Quenchers</h3>
+            <p>Cold, bright and refreshing drinks</p>
+          </div>
         </div>
+        <div class="arrow">→</div>
+      </a>
 
-        <div class="menu-item">
-          <div class="item-name">Sea Salt</div>
-          <div class="price">₱35</div>
+      <a class="category" href="food.html">
+        <div class="category-left">
+          <div class="icon">🍳</div>
+          <div>
+            <h3>Food</h3>
+            <p>All-day breakfast, pasta and comfort food</p>
+          </div>
         </div>
+        <div class="arrow">→</div>
+      </a>
 
-        <div class="menu-item">
-          <div class="item-name">Oat Milk</div>
-          <div class="price">₱55</div>
-        </div>
-      </div>
-    </section>
+    </div>
+
+    <div class="notice">
+      Menu items, prices, and availability may change without prior notice.
+    </div>
 
   </main>
 
   <footer>
     <h2>Suds & Sips Café</h2>
     <p>Good drinks. Good food. Good vibes.</p>
-    <p class="footer-small">
-      Menu prices and availability may change without prior notice.
-    </p>
   </footer>
 
 </body>
