@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Suds & Sips Café | Digital Menu</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
-      --cream: #f4eddc;
+      --cream: #f3ecdc;
       --cream-light: #fbf7ef;
-      --olive: #66704b;
-      --deep-olive: #394422;
-      --olive-soft: #8d9270;
-      --brown: #5b311b;
-      --brown-dark: #3d2115;
-      --sand: #d8c39d;
-      --text: #2e2a22;
+      --olive: #69724e;
+      --deep-olive: #3f4829;
+      --olive-soft: #8c9270;
+      --brown: #63351f;
+      --brown-dark: #422316;
+      --sand: #d9c7a6;
+      --text: #312d25;
+      --muted: #756b5f;
       --white: #ffffff;
-      --shadow: 0 14px 40px rgba(61, 33, 21, 0.12);
+
+      --shadow-soft: 0 12px 35px rgba(66, 35, 22, 0.09);
+      --shadow-hover: 0 20px 45px rgba(66, 35, 22, 0.16);
     }
 
     * {
@@ -59,412 +66,654 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
+
+    /* ========================================
+       HEADER
+    ======================================== */
 
     .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 5%;
-      background: var(--cream);
-      border-bottom: 1px solid rgba(91, 49, 27, 0.12);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 22px 5%;
+
+      background: rgba(243, 236, 220, 0.94);
+      border-bottom: 1px solid rgba(99, 53, 31, 0.10);
+
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     .brand h1 {
       font-family: "Playfair Display", serif;
-      font-size: 2rem;
       color: var(--brown);
-      letter-spacing: 0.5px;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 7px;
     }
 
     .brand span {
-      font-size: 0.72rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+      display: block;
       color: var(--deep-olive);
-    }
-
-    .menu-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 0.67rem;
       font-weight: 600;
-      color: var(--brown);
+      letter-spacing: 2.7px;
+      text-transform: uppercase;
     }
 
-    .menu-link-circle {
-      width: 42px;
-      height: 42px;
+    .explore-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      color: var(--brown);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .top-arrow {
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+      place-items: center;
+
       border-radius: 50%;
       background: var(--brown);
       color: var(--cream-light);
-      display: grid;
-      place-items: center;
-      transition: all 0.35s ease;
+
+      font-size: 1.15rem;
+
+      transition:
+        transform 0.35s ease,
+        background 0.35s ease;
     }
 
-    .menu-link:hover .menu-link-circle {
+    .explore-link:hover .top-arrow {
       transform: translateX(5px);
       background: var(--deep-olive);
     }
 
-    /* HERO */
+
+    /* ========================================
+       HERO
+    ======================================== */
 
     .hero {
-      padding: 40px 5% 30px;
+      padding: 28px 5% 0;
     }
 
     .hero-card {
-      min-height: 580px;
-      border-radius: 30px;
-      overflow: hidden;
-      background: var(--deep-olive);
+      min-height: 570px;
+
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      box-shadow: var(--shadow);
+
+      overflow: hidden;
+      border-radius: 30px;
+
+      background: var(--deep-olive);
+
+      box-shadow: var(--shadow-soft);
     }
 
     .hero-content {
-      padding: 70px 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+
+      padding: 65px 60px;
+
       color: var(--cream-light);
     }
 
     .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.75rem;
-      color: var(--sand);
       margin-bottom: 18px;
+
+      color: var(--sand);
+
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
     }
 
     .hero-content h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(3.2rem, 6vw, 6rem);
-      line-height: 0.98;
-      font-weight: 600;
+      max-width: 620px;
+
       margin-bottom: 24px;
+
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.2rem, 6vw, 5.8rem);
+      font-weight: 600;
+      line-height: 0.98;
+      letter-spacing: -2px;
     }
 
     .hero-content p {
-      max-width: 520px;
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 36px;
+      max-width: 500px;
+
+      margin-bottom: 34px;
+
+      color: rgba(255, 255, 255, 0.78);
+
+      font-size: 1rem;
+      line-height: 1.8;
     }
 
-    .hero-actions {
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
-    .primary-btn,
-    .secondary-btn {
-      padding: 15px 24px;
-      border-radius: 999px;
+    .primary-button,
+    .secondary-button {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 12px;
+
+      padding: 14px 23px;
+
+      border-radius: 999px;
+
+      font-size: 0.9rem;
       font-weight: 600;
-      transition: all 0.35s ease;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
     }
 
-    .primary-btn {
+    .primary-button {
       background: var(--brown);
       color: var(--cream-light);
     }
 
-    .primary-btn:hover {
+    .primary-button:hover {
+      transform: translateY(-3px);
+
       background: var(--cream-light);
       color: var(--brown);
-      transform: translateY(-3px);
     }
 
-    .secondary-btn {
-      border: 1px solid rgba(255,255,255,0.35);
+    .secondary-button {
+      border: 1px solid rgba(255, 255, 255, 0.30);
       color: var(--cream-light);
     }
 
-    .secondary-btn:hover {
-      background: rgba(255,255,255,0.1);
+    .secondary-button:hover {
       transform: translateY(-3px);
+
+      background: rgba(255, 255, 255, 0.10);
     }
 
     .hero-image {
-      min-height: 580px;
+      position: relative;
+
+      min-height: 570px;
+
       overflow: hidden;
     }
 
     .hero-image img {
       height: 100%;
-      transition: transform 0.8s ease;
+
+      transition: transform 0.9s cubic-bezier(.2,.7,.2,1);
     }
 
     .hero-card:hover .hero-image img {
       transform: scale(1.045);
     }
 
-    /* INTRO */
+    .hero-image::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(63, 72, 41, 0.16),
+          transparent 35%
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* ========================================
+       INTRO / SECOND IMAGE
+    ======================================== */
 
     .intro {
-      padding: 90px 5% 40px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
       align-items: center;
+
+      padding: 95px 5% 55px;
     }
 
-    .intro-text h3 {
-      font-family: "Playfair Display", serif;
+    .intro-copy .small-title {
+      display: block;
+
+      margin-bottom: 14px;
+
+      color: var(--olive);
+
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .intro-copy h3 {
+      margin-bottom: 22px;
+
       color: var(--brown);
-      font-size: clamp(2.4rem, 4vw, 4.3rem);
-      line-height: 1.05;
-      margin-bottom: 20px;
+
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.7rem, 5vw, 4.5rem);
+      font-weight: 600;
+      line-height: 1.03;
+      letter-spacing: -1px;
     }
 
-    .intro-text p {
-      max-width: 580px;
-      color: #6d6254;
+    .intro-copy p {
+      max-width: 540px;
+
+      color: var(--muted);
+
       font-size: 1rem;
+      line-height: 1.85;
     }
 
     .intro-image {
-      height: 430px;
-      overflow: hidden;
-      border-radius: 28px;
-      box-shadow: var(--shadow);
       position: relative;
+
+      height: 430px;
+
+      overflow: hidden;
+      border-radius: 27px;
+
+      box-shadow: var(--shadow-soft);
     }
 
     .intro-image img {
       height: 100%;
-      transition: transform 0.7s ease;
+
+      transition: transform 0.8s ease;
     }
 
     .intro-image:hover img {
       transform: scale(1.05);
     }
 
-    .photo-label {
+    .image-label {
       position: absolute;
-      bottom: 22px;
       left: 22px;
-      background: rgba(244, 237, 220, 0.94);
-      color: var(--brown);
-      padding: 11px 17px;
+      bottom: 22px;
+
+      padding: 10px 16px;
+
       border-radius: 999px;
-      font-size: 0.82rem;
+
+      background: rgba(251, 247, 239, 0.93);
+      color: var(--brown);
+
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+      font-size: 0.78rem;
       font-weight: 600;
+
+      backdrop-filter: blur(10px);
     }
 
-    /* CATEGORIES */
 
-    .categories-section {
-      padding: 70px 5% 100px;
+    /* ========================================
+       MENU CATEGORIES
+    ======================================== */
+
+    .menu-section {
+      padding: 60px 5% 105px;
     }
 
-    .section-top {
+    .section-heading {
       display: flex;
       justify-content: space-between;
       align-items: end;
-      gap: 30px;
-      margin-bottom: 32px;
+      gap: 40px;
+
+      margin-bottom: 34px;
     }
 
-    .section-top span {
-      color: var(--deep-olive);
-      text-transform: uppercase;
-      letter-spacing: 3px;
+    .section-heading span {
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: var(--olive);
+
       font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
-    .section-top h3 {
-      font-family: "Playfair Display", serif;
+    .section-heading h3 {
       color: var(--brown);
-      font-size: clamp(2.5rem, 4vw, 4rem);
+
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.6rem, 5vw, 4.3rem);
+      font-weight: 600;
       line-height: 1;
-      margin-top: 10px;
+      letter-spacing: -1px;
     }
 
-    .section-top p {
-      max-width: 420px;
-      color: #746858;
+    .section-heading p {
+      max-width: 400px;
+
+      color: var(--muted);
+
+      line-height: 1.75;
     }
 
-    .category-grid {
+
+    /* MENU GRID */
+
+    .menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      gap: 17px;
     }
 
-    .category-card {
-      background: var(--cream-light);
-      border: 1px solid rgba(91,49,27,0.11);
-      border-radius: 22px;
-      padding: 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 135px;
-      transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        background 0.35s ease,
-        border-color 0.35s ease;
-      overflow: hidden;
+    .menu-card {
       position: relative;
+
+      min-height: 145px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+
+      padding: 27px 28px;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(99, 53, 31, 0.10);
+      border-radius: 21px;
+
+      background: var(--cream-light);
+
+      transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
     }
 
-    .category-card::before {
+    /* premium light sweep */
+
+    .menu-card::before {
       content: "";
+
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: -130%;
+
+      width: 80%;
+      height: 100%;
+
       background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255,255,255,0.48) 45%,
-        transparent 65%
+        110deg,
+        transparent,
+        rgba(255,255,255,0.52),
+        transparent
       );
-      transform: translateX(-120%);
-      transition: transform 0.7s ease;
+
+      transform: skewX(-15deg);
+
+      transition: left 0.75s ease;
+
+      pointer-events: none;
     }
 
-    .category-card:hover::before {
-      transform: translateX(120%);
+    .menu-card:hover::before {
+      left: 140%;
     }
 
-    .category-card:hover {
+    .menu-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 18px 34px rgba(61,33,21,0.13);
-      border-color: rgba(91,49,27,0.28);
+
+      border-color: rgba(99, 53, 31, 0.24);
+
+      box-shadow: var(--shadow-hover);
     }
 
-    .category-info {
+    .menu-content {
       position: relative;
       z-index: 2;
     }
 
-    .category-number {
-      font-size: 0.7rem;
-      letter-spacing: 2px;
+    .menu-number {
+      margin-bottom: 7px;
+
       color: var(--olive);
-      margin-bottom: 8px;
+
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
-    .category-card h4 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.8rem;
-      color: var(--brown);
+    .menu-card h4 {
       margin-bottom: 4px;
+
+      color: var(--brown);
+
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      font-weight: 600;
     }
 
-    .category-card p {
-      color: #756b5f;
-      font-size: 0.92rem;
+    .menu-card p {
+      color: var(--muted);
+
+      font-size: 0.88rem;
     }
 
     .arrow {
       position: relative;
       z-index: 2;
-      flex-shrink: 0;
+
+      flex: 0 0 auto;
+
       width: 52px;
       height: 52px;
-      border-radius: 50%;
-      background: var(--brown);
-      color: var(--cream-light);
+
       display: grid;
       place-items: center;
-      font-size: 1.25rem;
-      transition: all 0.35s ease;
+
+      border-radius: 50%;
+
+      background: var(--brown);
+      color: var(--cream-light);
+
+      font-size: 1.2rem;
+
+      box-shadow: 0 8px 18px rgba(99, 53, 31, 0.16);
+
+      transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        background 0.35s ease,
+        color 0.35s ease;
     }
 
-    .category-card:hover .arrow {
-      transform: translateX(6px) rotate(-4deg);
+    .menu-card:hover .arrow {
+      transform: translateX(7px);
+
       background: var(--deep-olive);
     }
 
-    .category-card.featured {
+
+    /* FEATURED CARD */
+
+    .menu-card.featured {
       background: var(--olive);
+      border-color: transparent;
     }
 
-    .category-card.featured h4,
-    .category-card.featured p,
-    .category-card.featured .category-number {
+    .menu-card.featured .menu-number,
+    .menu-card.featured h4,
+    .menu-card.featured p {
       color: var(--cream-light);
     }
 
-    .category-card.featured .arrow {
+    .menu-card.featured p {
+      color: rgba(255,255,255,0.76);
+    }
+
+    .menu-card.featured .arrow {
+      background: var(--brown);
+      color: var(--cream-light);
+    }
+
+    .menu-card.featured:hover {
+      background: var(--deep-olive);
+    }
+
+    .menu-card.featured:hover .arrow {
       background: var(--cream-light);
       color: var(--brown);
     }
 
-    /* FOOTER */
+
+    /* ========================================
+       QUOTE STRIP
+    ======================================== */
+
+    .quote-strip {
+      margin: 0 5% 90px;
+
+      padding: 55px 35px;
+
+      border-radius: 28px;
+
+      background: var(--brown);
+      color: var(--cream-light);
+
+      text-align: center;
+    }
+
+    .quote-strip span {
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: var(--sand);
+
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .quote-strip h3 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+
+    /* ========================================
+       FOOTER
+    ======================================== */
 
     footer {
+      padding: 58px 5%;
+
       background: var(--deep-olive);
       color: var(--cream-light);
-      padding: 55px 5%;
     }
 
     .footer-inner {
       display: flex;
+      align-items: end;
       justify-content: space-between;
       gap: 50px;
-      align-items: end;
     }
 
-    footer h3 {
+    .footer-brand h3 {
+      margin-bottom: 8px;
+
       font-family: "Playfair Display", serif;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-size: 2.4rem;
+      font-weight: 600;
     }
 
-    footer p {
-      color: rgba(255,255,255,0.7);
-      max-width: 480px;
-    }
+    .footer-brand p {
+      color: rgba(255,255,255,0.65);
 
-    .footer-meta {
-      text-align: right;
       font-size: 0.85rem;
-      line-height: 1.9;
-      color: rgba(255,255,255,0.7);
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    /* MOBILE */
+    .footer-info {
+      color: rgba(255,255,255,0.68);
+
+      font-size: 0.84rem;
+      line-height: 1.9;
+      text-align: right;
+    }
+
+
+    /* ========================================
+       TABLET
+    ======================================== */
 
     @media (max-width: 900px) {
-      .hero-card,
-      .intro {
+
+      .hero-card {
         grid-template-columns: 1fr;
       }
 
       .hero-content {
-        padding: 55px 30px;
+        padding: 55px 35px;
       }
 
       .hero-image {
         min-height: 420px;
+        height: 420px;
       }
 
       .intro {
+        grid-template-columns: 1fr;
         gap: 35px;
       }
 
-      .category-grid {
-        grid-template-columns: 1fr;
+      .intro-image {
+        height: 390px;
       }
 
-      .section-top {
-        align-items: flex-start;
+      .section-heading {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
       }
 
       .footer-inner {
@@ -472,14 +721,20 @@
         align-items: flex-start;
       }
 
-      .footer-meta {
+      .footer-info {
         text-align: left;
       }
     }
 
+
+    /* ========================================
+       MOBILE
+    ======================================== */
+
     @media (max-width: 600px) {
+
       .header {
-        padding: 20px 5%;
+        padding: 18px 5%;
       }
 
       .brand h1 {
@@ -487,72 +742,150 @@
       }
 
       .brand span {
-        font-size: 0.58rem;
-        letter-spacing: 2px;
+        font-size: 0.52rem;
+        letter-spacing: 1.8px;
       }
 
-      .menu-link span:first-child {
+      .explore-link > span:first-child {
         display: none;
       }
 
+      .top-arrow {
+        width: 40px;
+        height: 40px;
+      }
+
       .hero {
-        padding-top: 18px;
+        padding-top: 17px;
       }
 
       .hero-card {
         border-radius: 22px;
       }
 
+      .hero-content {
+        padding: 48px 27px;
+      }
+
       .hero-content h2 {
-        font-size: 3rem;
+        font-size: 3.15rem;
+        letter-spacing: -1px;
+      }
+
+      .hero-content p {
+        font-size: 0.93rem;
+      }
+
+      .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .primary-button,
+      .secondary-button {
+        width: 100%;
       }
 
       .hero-image {
-        min-height: 300px;
+        height: 310px;
+        min-height: 310px;
       }
 
       .intro {
-        padding-top: 65px;
+        padding-top: 70px;
+      }
+
+      .intro-copy h3 {
+        font-size: 2.8rem;
       }
 
       .intro-image {
         height: 320px;
+        border-radius: 22px;
       }
 
-      .category-card {
-        padding: 22px;
+      .menu-section {
+        padding-top: 45px;
       }
 
-      .category-card h4 {
-        font-size: 1.55rem;
+      .section-heading h3 {
+        font-size: 2.7rem;
+      }
+
+      .menu-card {
+        min-height: 130px;
+
+        padding: 22px 20px;
+      }
+
+      .menu-card h4 {
+        font-size: 1.5rem;
+      }
+
+      .menu-card p {
+        max-width: 230px;
+
+        font-size: 0.82rem;
+      }
+
+      .arrow {
+        width: 46px;
+        height: 46px;
+      }
+
+      .quote-strip {
+        padding: 45px 22px;
+        margin-bottom: 65px;
+      }
+
+      footer {
+        padding-top: 48px;
+        padding-bottom: 48px;
       }
     }
+
   </style>
 </head>
+
 
 <body>
 
   <div class="page">
 
-    <!-- HEADER -->
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
     <header class="header">
+
       <div class="brand">
         <h1>Suds & Sips</h1>
         <span>Coffee • Food • Good Company</span>
       </div>
 
-      <a href="#menu" class="menu-link">
+      <a href="#menu" class="explore-link">
         <span>Explore Menu</span>
-        <span class="menu-link-circle">→</span>
+        <span class="top-arrow">→</span>
       </a>
+
     </header>
 
-    <!-- HERO -->
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
     <section class="hero">
+
       <div class="hero-card">
 
         <div class="hero-content">
-          <span class="eyebrow">Suds & Sips Café</span>
+
+          <div class="eyebrow">
+            Suds & Sips Café
+          </div>
 
           <h2>
             Sip slow.<br>
@@ -564,31 +897,49 @@
             long conversations and everything in between.
           </p>
 
-          <div class="hero-actions">
-            <a href="#menu" class="primary-btn">
+          <div class="hero-buttons">
+
+            <a href="#menu" class="primary-button">
               Browse the Menu
               <span>→</span>
             </a>
 
-            <a href="food.html" class="secondary-btn">
+            <a href="food.html" class="secondary-button">
               See Our Food
             </a>
+
           </div>
+
         </div>
 
+
+        <!-- YOUR FIRST IMAGE -->
         <div class="hero-image">
-          <!-- Change this image filename to your uploaded café photo -->
-          <img src="here-imae.jpg" alt="Suds and Sips Café">
+
+          <img
+            src="here-imae.jpg"
+            alt="Suds and Sips Café"
+          >
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- STORY / SECOND IMAGE -->
+
+
+    <!-- =====================================
+         INTRO + SECOND IMAGE
+    ====================================== -->
+
     <section class="intro">
 
-      <div class="intro-text">
-        <span class="eyebrow" style="color:#66704b;">Made for everyday moments</span>
+      <div class="intro-copy">
+
+        <span class="small-title">
+          Made for everyday moments
+        </span>
 
         <h3>
           Good drinks.<br>
@@ -600,116 +951,304 @@
           drinks and comforting meals, Suds & Sips is a place to slow down,
           catch up and enjoy something good.
         </p>
+
       </div>
 
+
+      <!-- YOUR SECOND IMAGE -->
       <div class="intro-image">
-        <!-- Change this to your second uploaded photo -->
-        <img src="cheese-ball.jpg" alt="Cheese balls at Suds and Sips Café">
-        <div class="photo-label">Made with care in Iloilo</div>
+
+        <img
+          src="cheese-ball.jpg"
+          alt="Cheese balls at Suds and Sips Café"
+        >
+
+        <div class="image-label">
+          Made with care in Iloilo
+        </div>
+
       </div>
 
     </section>
 
-    <!-- CATEGORY MENU -->
-    <section class="categories-section" id="menu">
 
-      <div class="section-top">
+
+    <!-- =====================================
+         MENU CATEGORIES
+    ====================================== -->
+
+    <section class="menu-section" id="menu">
+
+      <div class="section-heading">
 
         <div>
-          <span>Explore the menu</span>
-          <h3>What are you craving?</h3>
+
+          <span>
+            Explore the menu
+          </span>
+
+          <h3>
+            What are you craving?
+          </h3>
+
         </div>
 
         <p>
-          Choose a category and discover your next favorite drink or meal.
+          Pick a category and find your next favorite drink or meal.
         </p>
 
       </div>
 
-      <div class="category-grid">
 
-        <a href="espresso.html" class="category-card featured">
-          <div class="category-info">
-            <div class="category-number">01</div>
-            <h4>Espresso</h4>
-            <p>Classic coffee and signature favorites.</p>
+
+      <div class="menu-grid">
+
+
+        <!-- ESPRESSO -->
+
+        <a
+          href="espresso.html"
+          class="menu-card featured"
+        >
+
+          <div class="menu-content">
+
+            <div class="menu-number">
+              01
+            </div>
+
+            <h4>
+              Espresso
+            </h4>
+
+            <p>
+              Classic coffee and signature favorites.
+            </p>
+
           </div>
 
-          <div class="arrow">→</div>
-        </a>
-
-        <a href="non-coffee.html" class="category-card">
-          <div class="category-info">
-            <div class="category-number">02</div>
-            <h4>Non-Coffee</h4>
-            <p>Matcha, ube and creamy specialty drinks.</p>
+          <div class="arrow">
+            →
           </div>
 
-          <div class="arrow">→</div>
         </a>
 
-        <a href="sea-salt-sips.html" class="category-card">
-          <div class="category-info">
-            <div class="category-number">03</div>
-            <h4>Sea Salt Sips</h4>
-            <p>Rich, smooth and finished with our sea salt cream.</p>
+
+
+        <!-- NON COFFEE -->
+
+        <a
+          href="non-coffee.html"
+          class="menu-card"
+        >
+
+          <div class="menu-content">
+
+            <div class="menu-number">
+              02
+            </div>
+
+            <h4>
+              Non-Coffee
+            </h4>
+
+            <p>
+              Matcha, ube and creamy specialty drinks.
+            </p>
+
           </div>
 
-          <div class="arrow">→</div>
-        </a>
-
-        <a href="quenchers.html" class="category-card">
-          <div class="category-info">
-            <div class="category-number">04</div>
-            <h4>Quenchers</h4>
-            <p>Bright and refreshing drinks for warm days.</p>
+          <div class="arrow">
+            →
           </div>
 
-          <div class="arrow">→</div>
         </a>
 
-        <a href="food.html" class="category-card">
-          <div class="category-info">
-            <div class="category-number">05</div>
-            <h4>Food</h4>
-            <p>Comforting meals perfect with your favorite drink.</p>
+
+
+        <!-- SEA SALT -->
+
+        <a
+          href="sea-salt-sips.html"
+          class="menu-card"
+        >
+
+          <div class="menu-content">
+
+            <div class="menu-number">
+              03
+            </div>
+
+            <h4>
+              Sea Salt Sips
+            </h4>
+
+            <p>
+              Rich, smooth and topped with sea salt cream.
+            </p>
+
           </div>
 
-          <div class="arrow">→</div>
-        </a>
-
-        <a href="espresso.html" class="category-card">
-          <div class="category-info">
-            <div class="category-number">06</div>
-            <h4>Our Favorites</h4>
-            <p>Not sure what to order? Start with our crowd favorites.</p>
+          <div class="arrow">
+            →
           </div>
 
-          <div class="arrow">→</div>
         </a>
+
+
+
+        <!-- QUENCHERS -->
+
+        <a
+          href="quenchers.html"
+          class="menu-card"
+        >
+
+          <div class="menu-content">
+
+            <div class="menu-number">
+              04
+            </div>
+
+            <h4>
+              Quenchers
+            </h4>
+
+            <p>
+              Bright, fruity and refreshing.
+            </p>
+
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+
+        </a>
+
+
+
+        <!-- FOOD -->
+
+        <a
+          href="food.html"
+          class="menu-card"
+        >
+
+          <div class="menu-content">
+
+            <div class="menu-number">
+              05
+            </div>
+
+            <h4>
+              Food
+            </h4>
+
+            <p>
+              Comforting meals made to pair with your favorite drink.
+            </p>
+
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+
+        </a>
+
+
+
+        <!-- FAVORITES -->
+
+        <a
+          href="espresso.html"
+          class="menu-card"
+        >
+
+          <div class="menu-content">
+
+            <div class="menu-number">
+              06
+            </div>
+
+            <h4>
+              Our Favorites
+            </h4>
+
+            <p>
+              Start with some of our most-loved picks.
+            </p>
+
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+
+        </a>
+
 
       </div>
+
     </section>
 
-    <!-- FOOTER -->
+
+
+    <!-- =====================================
+         BRAND STRIP
+    ====================================== -->
+
+    <section class="quote-strip">
+
+      <span>
+        Suds & Sips
+      </span>
+
+      <h3>
+        Good drinks.<br>
+        Brighter days.
+      </h3>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
     <footer>
+
       <div class="footer-inner">
 
-        <div>
-          <h3>Suds & Sips</h3>
+        <div class="footer-brand">
+
+          <h3>
+            Suds & Sips
+          </h3>
+
           <p>
             Coffee • Food • Good Company
           </p>
+
         </div>
 
-        <div class="footer-meta">
+
+        <div class="footer-info">
+
           Iloilo City<br>
+
           10:00 AM – 9:00 PM<br>
+
           Instagram • Facebook • TikTok
+
         </div>
 
       </div>
+
     </footer>
+
 
   </div>
 
