@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Explore the food menu at Suds & Sips Café in Iloilo City, featuring all-day meals, Pancit Molo, Taiwanese Chicken, burgers, snacks and pasta."
+  >
+
+  <title>Food Menu | Suds & Sips Café</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --cream: #f3ecdc;
+      --cream-light: #fbf7ef;
+
+      --olive: #69724e;
+      --deep-olive: #3f4829;
+
+      --brown: #63351f;
+      --brown-dark: #422316;
+
+      --sand: #d9c7a6;
+
+      --text: #312d25;
+      --muted: #756b5f;
+
+      --shadow-soft:
+        0 12px 35px rgba(66, 35, 22, 0.09);
+    }
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+
+    .page {
+      max-width: 1500px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+
+    /* ========================================
+       HEADER
+    ======================================== */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 82px;
+      padding: 10px 5%;
+
+      background:
+        rgba(243, 236, 220, 0.96);
+
+      border-bottom:
+        1px solid rgba(99, 53, 31, 0.08);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      height: 62px;
+    }
+
+
+    .cafe-logo {
+      display: block;
+      width: auto;
+      height: 58px;
+      max-width: 220px;
+      object-fit: contain;
+    }
+
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--brown);
+
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+
+    .back-arrow {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--brown);
+      color: var(--cream-light);
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+    }
+
+
+    .back-link:hover .back-arrow {
+      transform: translateX(-4px);
+      background: var(--deep-olive);
+    }
+
+
+    /* ========================================
+       HERO
+    ======================================== */
+
+    .hero {
+      padding: 35px 5% 0;
+    }
+
+
+    .hero-inner {
+      position: relative;
+      overflow: hidden;
+
+      padding: 70px 60px;
+
+      border-radius: 30px;
+
+      background: var(--deep-olive);
+      color: var(--cream-light);
+
+      box-shadow: var(--shadow-soft);
+    }
+
+
+    .hero-inner::after {
+      content: "";
+
+      position: absolute;
+
+      width: 270px;
+      height: 270px;
+
+      right: -70px;
+      bottom: -130px;
+
+      border:
+        1px solid rgba(255,255,255,0.12);
+
+      border-radius: 50%;
+    }
+
+
+    .eyebrow {
+      position: relative;
+      z-index: 2;
+
+      margin-bottom: 14px;
+
+      color: var(--sand);
+
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+
+      margin-bottom: 20px;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(3.4rem, 7vw, 6.4rem);
+
+      font-weight: 600;
+      line-height: 0.95;
+      letter-spacing: -2px;
+    }
+
+
+    .hero p {
+      position: relative;
+      z-index: 2;
+
+      max-width: 620px;
+
+      color:
+        rgba(255,255,255,0.76);
+
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+
+    /* ========================================
+       POPULAR PICKS
+    ======================================== */
+
+    .popular-section {
+      padding: 65px 5% 20px;
+    }
+
+
+    .popular-heading {
+      margin-bottom: 28px;
+    }
+
+
+    .popular-heading h2 {
+      color: var(--brown);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(2.5rem, 5vw, 4rem);
+
+      font-weight: 600;
+      line-height: 1;
+    }
+
+
+    .popular-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 18px;
+    }
+
+
+    .popular-card {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 210px;
+
+      padding: 28px;
+
+      border-radius: 24px;
+
+      background: var(--cream-light);
+
+      border:
+        1px solid rgba(99,53,31,0.10);
+
+      box-shadow: var(--shadow-soft);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+
+    .popular-card:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 18px 45px rgba(66, 35, 22, 0.12);
+    }
+
+
+    .popular-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 110px;
+      height: 110px;
+
+      right: -45px;
+      bottom: -45px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(105,114,78,0.08);
+    }
+
+
+    .popular-label {
+      display: inline-block;
+
+      margin-bottom: 18px;
+
+      color: var(--olive);
+
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    .popular-card h3 {
+      margin-bottom: 8px;
+
+      color: var(--brown);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 1.65rem;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+
+    .popular-description {
+      max-width: 300px;
+
+      margin-bottom: 22px;
+
+      color: var(--muted);
+
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+
+    .popular-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
+
+    .popular-price {
+      color: var(--deep-olive);
+
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+
+    .popular-price span {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 0.69rem;
+      font-weight: 500;
+    }
+
+
+    .popular-arrow {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--brown);
+      color: var(--cream-light);
+
+      font-size: 0.9rem;
+    }
+
+
+    /* ========================================
+       FOOD MENU
+    ======================================== */
+
+    .food-menu {
+      padding: 45px 5% 70px;
+    }
+
+
+    .food-grid {
+      display: grid;
+      gap: 30px;
+    }
+
+
+    .menu-box {
+      overflow: hidden;
+
+      border-radius: 28px;
+
+      background: var(--cream-light);
+
+      border:
+        1px solid rgba(99,53,31,0.10);
+
+      box-shadow: var(--shadow-soft);
+    }
+
+
+    .menu-box-header {
+      padding: 27px 34px;
+
+      background: var(--brown);
+      color: var(--cream-light);
+    }
+
+
+    .menu-box-header h2 {
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(1.9rem, 4vw, 2.5rem);
+
+      font-weight: 600;
+    }
+
+
+    .menu-box-header p {
+      margin-top: 4px;
+
+      color:
+        rgba(255,255,255,0.68);
+
+      font-size: 0.77rem;
+    }
+
+
+    .menu-list {
+      padding: 8px 34px;
+    }
+
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+
+      padding: 22px 0;
+
+      border-bottom:
+        1px solid rgba(99,53,31,0.11);
+    }
+
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+
+    .menu-item-info {
+      display: flex;
+      flex-direction: column;
+
+      gap: 4px;
+    }
+
+
+    .menu-item-name {
+      color: var(--brown);
+
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+
+    .menu-note {
+      color: var(--muted);
+
+      font-size: 0.76rem;
+    }
+
+
+    .menu-item-price {
+      flex-shrink: 0;
+
+      color: var(--deep-olive);
+
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+
+    /* ========================================
+       TWO PRICE OPTIONS
+    ======================================== */
+
+    .price-options {
+      display: flex;
+      align-items: center;
+
+      gap: 22px;
+    }
+
+
+    .price-option {
+      min-width: 65px;
+
+      text-align: right;
+    }
+
+
+    .price-option span {
+      display: block;
+
+      margin-bottom: 2px;
+
+      color: var(--muted);
+
+      font-size: 0.66rem;
+      font-weight: 600;
+
+      text-transform: uppercase;
+    }
+
+
+    .price-option strong {
+      color: var(--deep-olive);
+
+      font-size: 0.98rem;
+    }
+
+
+    /* ========================================
+       POPULAR MENU ITEM
+    ======================================== */
+
+    .popular-item {
+      position: relative;
+    }
+
+
+    .popular-item::before {
+      content: "";
+
+      position: absolute;
+
+      left: -17px;
+      top: 50%;
+
+      width: 4px;
+      height: 38px;
+
+      border-radius: 999px;
+
+      background: var(--olive);
+
+      transform: translateY(-50%);
+    }
+
+
+    .popular-note {
+      color: var(--olive);
+
+      font-weight: 700;
+      letter-spacing: 0.25px;
+    }
+
+
+    /* ========================================
+       BOTTOM MESSAGE
+    ======================================== */
+
+    .message {
+      padding:
+        0 5% 95px;
+    }
+
+
+    .message-inner {
+      padding: 42px 32px;
+
+      border-radius: 24px;
+
+      background: var(--olive);
+      color: var(--cream-light);
+
+      text-align: center;
+    }
+
+
+    .message-inner span {
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: var(--sand);
+
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    .message-inner h2 {
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(2rem, 4vw, 3.3rem);
+
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+
+    footer {
+      padding: 50px 5%;
+
+      background: var(--deep-olive);
+      color: var(--cream-light);
+    }
+
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 40px;
+    }
+
+
+    .footer-logo {
+      width: auto;
+      height: 58px;
+      max-width: 200px;
+
+      object-fit: contain;
+    }
+
+
+    .footer-info {
+      color:
+        rgba(255,255,255,0.68);
+
+      font-size: 0.84rem;
+      line-height: 1.9;
+
+      text-align: right;
+    }
+
+
+    /* ========================================
+       TABLET
+    ======================================== */
+
+    @media (max-width: 850px) {
+
+      .popular-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .popular-card {
+        min-height: auto;
+      }
+
+    }
+
+
+    @media (max-width: 760px) {
+
+      .hero-inner {
+        padding: 55px 35px;
+      }
+
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+
+      .footer-info {
+        text-align: left;
+      }
+
+    }
+
+
+    /* ========================================
+       MOBILE
+    ======================================== */
+
+    @media (max-width: 600px) {
+
+      .header {
+        min-height: 70px;
+        padding: 8px 5%;
+      }
+
+
+      .brand {
+        height: 52px;
+      }
+
+
+      .cafe-logo {
+        height: 48px;
+        max-width: 165px;
+      }
+
+
+      .back-link > span:last-child {
+        display: none;
+      }
+
+
+      .back-arrow {
+        width: 40px;
+        height: 40px;
+      }
+
+
+      .hero {
+        padding-top: 17px;
+      }
+
+
+      .hero-inner {
+        padding: 48px 27px;
+        border-radius: 22px;
+      }
+
+
+      .hero h1 {
+        font-size: 3.35rem;
+        letter-spacing: -1px;
+      }
+
+
+      .popular-section {
+        padding-top: 48px;
+      }
+
+
+      .popular-heading h2 {
+        font-size: 2.6rem;
+      }
+
+
+      .popular-card {
+        padding: 24px;
+        border-radius: 20px;
+      }
+
+
+      .food-menu {
+        padding-top: 35px;
+        padding-bottom: 55px;
+      }
+
+
+      .food-grid {
+        gap: 24px;
+      }
+
+
+      .menu-box {
+        border-radius: 22px;
+      }
+
+
+      .menu-box-header {
+        padding: 24px 22px;
+      }
+
+
+      .menu-box-header h2 {
+        font-size: 2rem;
+      }
+
+
+      .menu-list {
+        padding: 5px 22px;
+      }
+
+
+      .menu-item {
+        padding: 20px 0;
+      }
+
+
+      .popular-item::before {
+        left: -11px;
+        height: 32px;
+      }
+
+
+      .price-options {
+        gap: 12px;
+      }
+
+
+      .price-option {
+        min-width: 52px;
+      }
+
+
+      .price-option strong {
+        font-size: 0.9rem;
+      }
+
+
+      .message-inner {
+        padding: 38px 22px;
+      }
+
+
+      footer {
+        padding: 45px 5%;
+      }
+
+    }
+
+
+    @media (max-width: 420px) {
+
+      .menu-item {
+        gap: 14px;
+      }
+
+
+      .price-options {
+        gap: 8px;
+      }
+
+
+      .price-option {
+        min-width: 48px;
+      }
+
+
+      .price-option span {
+        font-size: 0.58rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="page">
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="header">
+
+      <a
+        href="index.html"
+        class="brand"
+        aria-label="Suds & Sips Café home"
+      >
+
+        <img
+          src="suds-and-sips-logo.png"
+          alt="Suds & Sips Café"
+          class="cafe-logo"
+        >
+
+      </a>
+
+
+      <a
+        href="index.html#menu"
+        class="back-link"
+      >
+
+        <span class="back-arrow">
+          ←
+        </span>
+
+        <span>
+          Back to Menu
+        </span>
+
+      </a>
+
+    </header>
+
+
+
+    <main>
+
+
+      <!-- =====================================
+           HERO
+      ====================================== -->
+
+      <section class="hero">
+
+        <div class="hero-inner">
+
+          <div class="eyebrow">
+            Suds & Sips Menu
+          </div>
+
+
+          <h1>
+            Food
+          </h1>
+
+
+          <p>
+            From comforting all-day plates to crispy
+            bites, burgers and café favorites. Find
+            something good to pair with your favorite sip.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================================
+           POPULAR PICKS
+      ====================================== -->
+
+      <section class="popular-section">
+
+        <div class="popular-heading">
+
+          <h2>
+            Popular Picks
+          </h2>
+
+        </div>
+
+
+        <div class="popular-grid">
+
+
+          <!-- TAIWANESE CHICKEN BURGER -->
+
+          <div class="popular-card">
+
+            <span class="popular-label">
+              Crowd Favorite
+            </span>
+
+            <h3>
+              Taiwanese Chicken Burger
+            </h3>
+
+            <p class="popular-description">
+              Crispy Taiwanese-style chicken tucked
+              into a burger and served with fries.
+            </p>
+
+            <div class="popular-bottom">
+
+              <div class="popular-price">
+                ₱178
+              </div>
+
+              <span class="popular-arrow">
+                ↗
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- TAIWANESE CHICKEN -->
+
+          <div class="popular-card">
+
+            <span class="popular-label">
+              Popular Pick
+            </span>
+
+            <h3>
+              Taiwanese Chicken
+            </h3>
+
+            <p class="popular-description">
+              Crispy chicken pops served with
+              garlic mayo and ketchup.
+            </p>
+
+            <div class="popular-bottom">
+
+              <div class="popular-price">
+                ₱138
+                <span>
+                  Regular
+                </span>
+              </div>
+
+              <span class="popular-arrow">
+                ↗
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- POTATO CHEESE BALLS -->
+
+          <div class="popular-card">
+
+            <span class="popular-label">
+              Popular Pick
+            </span>
+
+            <h3>
+              Potato Cheese Balls
+            </h3>
+
+            <p class="popular-description">
+              Crispy, cheesy and easy to share.
+              A snack made for the table.
+            </p>
+
+            <div class="popular-bottom">
+
+              <div class="popular-price">
+                ₱180
+              </div>
+
+              <span class="popular-arrow">
+                ↗
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================================
+           FULL FOOD MENU
+      ====================================== -->
+
+      <section class="food-menu">
+
+        <div class="food-grid">
+
+
+          <!-- =================================
+               ALL-DAY PLATES
+          ================================== -->
+
+          <div class="menu-box">
+
+            <div class="menu-box-header">
+
+              <h2>
+                All-Day Plates
+              </h2>
+
+              <p>
+                Comforting café meals for any time of day.
+              </p>
+
+            </div>
+
+
+            <div class="menu-list">
+
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Hungarian
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱208
+                </span>
+
+              </div>
+
+
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Hamonado Longganisa
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱188
+                </span>
+
+              </div>
+
+
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Corned Beef
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱188
+                </span>
+
+              </div>
+
+
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Tocino
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱188
+                </span>
+
+              </div>
+
+
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Beef Tapa
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱188
+                </span>
+
+              </div>
+
+
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Hungarian Hamonado
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱258
+                </span>
+
+              </div>
+
+
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Fried Chicken
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱250
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =================================
+               COZY BOWL
+          ================================== -->
+
+          <div class="menu-box">
+
+            <div class="menu-box-header">
+
+              <h2>
+                Cozy Bowl
+              </h2>
+
+              <p>
+                Something warm, comforting and familiar.
+              </p>
+
+            </div>
+
+
+            <div class="menu-list">
+
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Pancit Molo
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱110
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =================================
+               GRAB & MUNCH
+          ================================== -->
+
+          <div class="menu-box">
+
+            <div class="menu-box-header">
+
+              <h2>
+                Grab & Munch
+              </h2>
+
+              <p>
+                Crispy bites for snacking, sharing or keeping all to yourself.
+              </p>
+
+            </div>
+
+
+            <div class="menu-list">
+
+
+              <!-- TAIWANESE CHICKEN -->
+
+              <div class="menu-item popular-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Taiwanese Chicken
+                  </span>
+
+                  <span class="menu-note popular-note">
+                    Popular Pick
+                  </span>
+
+                  <span class="menu-note">
+                    Chicken pops • Garlic mayo • Ketchup
+                  </span>
+
+                </div>
+
+
+                <div class="price-options">
+
+                  <div class="price-option">
+
+                    <span>
+                      Regular
+                    </span>
+
+                    <strong>
+                      ₱138
+                    </strong>
+
+                  </div>
+
+
+                  <div class="price-option">
+
+                    <span>
+                      Sharing
+                    </span>
+
+                    <strong>
+                      ₱268
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- FRIES -->
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Fries
+                  </span>
+
+                </div>
+
+
+                <div class="price-options">
+
+                  <div class="price-option">
+
+                    <span>
+                      Regular
+                    </span>
+
+                    <strong>
+                      ₱118
+                    </strong>
+
+                  </div>
+
+
+                  <div class="price-option">
+
+                    <span>
+                      Sharing
+                    </span>
+
+                    <strong>
+                      ₱198
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- POTATO MARBLES -->
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Potato Marbles
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱99
+                </span>
+
+              </div>
+
+
+
+              <!-- POTATO WEDGES -->
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Potato Wedges
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱140
+                </span>
+
+              </div>
+
+
+
+              <!-- SANDWICH ROLL-UPS -->
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Sandwich Roll-Ups
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱210
+                </span>
+
+              </div>
+
+
+
+              <!-- POTATO CHEESE BALLS -->
+
+              <div class="menu-item popular-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Potato Cheese Balls
+                  </span>
+
+                  <span class="menu-note popular-note">
+                    Popular Pick
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱180
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =================================
+               BURGERS
+          ================================== -->
+
+          <div class="menu-box">
+
+            <div class="menu-box-header">
+
+              <h2>
+                Burgers
+              </h2>
+
+              <p>
+                Served with fries.
+              </p>
+
+            </div>
+
+
+            <div class="menu-list">
+
+
+              <!-- CLASSIC -->
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Classic
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱178
+                </span>
+
+              </div>
+
+
+
+              <!-- DOUBLE CLASSIC -->
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Double Classic
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱248
+                </span>
+
+              </div>
+
+
+
+              <!-- TAIWANESE CHICKEN BURGER -->
+
+              <div class="menu-item popular-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Taiwanese Chicken
+                  </span>
+
+                  <span class="menu-note popular-note">
+                    Popular Pick
+                  </span>
+
+                  <span class="menu-note">
+                    Served with fries
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱178
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =================================
+               PASTA
+          ================================== -->
+
+          <div class="menu-box">
+
+            <div class="menu-box-header">
+
+              <h2>
+                Pasta
+              </h2>
+
+              <p>
+                A creamy café favorite.
+              </p>
+
+            </div>
+
+
+            <div class="menu-list">
+
+
+              <div class="menu-item">
+
+                <div class="menu-item-info">
+
+                  <span class="menu-item-name">
+                    Carbonara
+                  </span>
+
+                </div>
+
+                <span class="menu-item-price">
+                  ₱199
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================================
+           BOTTOM MESSAGE
+      ====================================== -->
+
+      <section class="message">
+
+        <div class="message-inner">
+
+          <span>
+            Stay for a bite
+          </span>
+
+
+          <h2>
+            Good sips deserve<br>
+            something good to eat.
+          </h2>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer>
+
+      <div class="footer-inner">
+
+
+        <img
+          src="suds-and-sips-logo.png"
+          alt="Suds & Sips Café"
+          class="footer-logo"
+        >
+
+
+        <div class="footer-info">
+
+          Iloilo City • City of Love<br>
+
+          11:00 AM – 9:00 PM
+
+        </div>
+
+
+      </div>
+
+    </footer>
+
+
+  </div>
+
+</body>
+
+</html>
