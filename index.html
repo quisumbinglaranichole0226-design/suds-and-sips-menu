@@ -1,93 +1,1758 @@
-<!-- FOOD -->
+<!DOCTYPE html>
+<html lang="en">
 
-<a
-  href="food.html"
-  class="menu-card"
->
+<head>
+  <meta charset="UTF-8">
 
-  <div class="menu-content">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-    <div class="menu-number">
-      05
-    </div>
+  <meta
+    name="description"
+    content="Explore the Suds & Sips Café menu in Iloilo City. Discover espresso, non-coffee drinks, sea salt sips, quenchers, comforting food, cakes and croffles."
+  >
 
-    <h3>
-      Food
-    </h3>
+  <title>Suds & Sips Café | Iloilo City</title>
 
-    <p>
-      Comforting meals made to pair
-      with your favorite drink.
-    </p>
+
+  <!-- GOOGLE FONTS -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    /* ========================================
+       COLORS
+    ======================================== */
+
+    :root {
+
+      --cream: #f3ecdc;
+      --cream-light: #fbf7ef;
+
+      --olive: #69724e;
+      --deep-olive: #3f4829;
+      --olive-soft: #8c9270;
+
+      --brown: #63351f;
+      --brown-dark: #422316;
+
+      --sand: #d9c7a6;
+
+      --text: #312d25;
+      --muted: #756b5f;
+
+      --shadow-soft:
+        0 12px 35px rgba(66, 35, 22, 0.09);
+
+      --shadow-hover:
+        0 20px 45px rgba(66, 35, 22, 0.16);
+    }
+
+
+    /* ========================================
+       RESET
+    ======================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    /* ========================================
+       PAGE
+    ======================================== */
+
+    .page {
+      max-width: 1500px;
+      min-height: 100vh;
+      margin: 0 auto;
+    }
+
+
+    /* ========================================
+       MINIMAL HEADER
+    ======================================== */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 82px;
+      padding: 10px 5%;
+
+      background:
+        rgba(243, 236, 220, 0.96);
+
+      border-bottom:
+        1px solid rgba(99, 53, 31, 0.08);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+
+    /* LOGO */
+
+    .brand {
+      display: flex;
+      align-items: center;
+      height: 62px;
+    }
+
+
+    .cafe-logo {
+      display: block;
+
+      width: auto;
+      height: 58px;
+      max-width: 220px;
+
+      object-fit: contain;
+
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+
+    .brand:hover .cafe-logo {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+
+
+    /* MENU BUTTON */
+
+    .explore-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      color: var(--brown);
+
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+
+    .top-arrow {
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--brown);
+      color: var(--cream-light);
+
+      font-size: 1.15rem;
+
+      transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+    }
+
+
+    .explore-link:hover .top-arrow {
+      transform: translateX(5px);
+      background: var(--deep-olive);
+    }
+
+
+    /* ========================================
+       HERO
+    ======================================== */
+
+    .hero {
+      padding: 28px 5% 0;
+    }
+
+
+    .hero-card {
+      min-height: 570px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.05fr 0.95fr;
+
+      overflow: hidden;
+
+      border-radius: 30px;
+
+      background: var(--deep-olive);
+
+      box-shadow: var(--shadow-soft);
+    }
+
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 65px 60px;
+
+      color: var(--cream-light);
+    }
+
+
+    .eyebrow {
+      margin-bottom: 18px;
+
+      color: var(--sand);
+
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+    }
+
+
+    .hero-content h1 {
+      max-width: 620px;
+
+      margin-bottom: 24px;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(3.2rem, 6vw, 5.8rem);
+
+      font-weight: 600;
+
+      line-height: 0.98;
+
+      letter-spacing: -2px;
+    }
+
+
+    .hero-content p {
+      max-width: 500px;
+
+      margin-bottom: 34px;
+
+      color:
+        rgba(255, 255, 255, 0.78);
+
+      font-size: 1rem;
+
+      line-height: 1.8;
+    }
+
+
+    /* HERO BUTTONS */
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+
+      padding: 14px 23px;
+
+      border-radius: 999px;
+
+      font-size: 0.9rem;
+      font-weight: 600;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+
+
+    .primary-button {
+      background: var(--brown);
+      color: var(--cream-light);
+    }
+
+
+    .primary-button:hover {
+      transform: translateY(-3px);
+
+      background: var(--cream-light);
+      color: var(--brown);
+    }
+
+
+    .secondary-button {
+      border:
+        1px solid rgba(255, 255, 255, 0.30);
+
+      color: var(--cream-light);
+    }
+
+
+    .secondary-button:hover {
+      transform: translateY(-3px);
+
+      background:
+        rgba(255, 255, 255, 0.10);
+    }
+
+
+    /* HERO IMAGE */
+
+    .hero-image {
+      position: relative;
+
+      min-height: 570px;
+
+      overflow: hidden;
+    }
+
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.9s
+        cubic-bezier(.2,.7,.2,1);
+    }
+
+
+    .hero-card:hover .hero-image img {
+      transform: scale(1.045);
+    }
+
+
+    .hero-image::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(63, 72, 41, 0.18),
+          transparent 38%
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* ========================================
+       INTRO
+    ======================================== */
+
+    .intro {
+      display: grid;
+
+      grid-template-columns:
+        0.9fr 1.1fr;
+
+      gap: 70px;
+
+      align-items: center;
+
+      padding:
+        95px 5% 55px;
+    }
+
+
+    .small-title {
+      display: block;
+
+      margin-bottom: 14px;
+
+      color: var(--olive);
+
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+
+    .intro-copy h2 {
+      margin-bottom: 22px;
+
+      color: var(--brown);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(2.7rem, 5vw, 4.5rem);
+
+      font-weight: 600;
+
+      line-height: 1.03;
+
+      letter-spacing: -1px;
+    }
+
+
+    .intro-copy p {
+      max-width: 540px;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+
+      line-height: 1.85;
+    }
+
+
+    /* SECOND IMAGE */
+
+    .intro-image {
+      position: relative;
+
+      height: 430px;
+
+      overflow: hidden;
+
+      border-radius: 27px;
+
+      box-shadow: var(--shadow-soft);
+    }
+
+
+    .intro-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.8s ease;
+    }
+
+
+    .intro-image:hover img {
+      transform: scale(1.05);
+    }
+
+
+    .image-label {
+      position: absolute;
+
+      left: 22px;
+      bottom: 22px;
+
+      padding: 10px 16px;
+
+      border-radius: 999px;
+
+      background:
+        rgba(251, 247, 239, 0.94);
+
+      color: var(--brown);
+
+      box-shadow:
+        0 6px 20px
+        rgba(0,0,0,0.08);
+
+      font-size: 0.78rem;
+      font-weight: 600;
+
+      backdrop-filter: blur(10px);
+    }
+
+
+    /* ========================================
+       MENU SECTION
+    ======================================== */
+
+    .menu-section {
+      padding:
+        60px 5% 105px;
+    }
+
+
+    .section-heading {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: end;
+
+      gap: 40px;
+
+      margin-bottom: 34px;
+    }
+
+
+    .section-heading span {
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: var(--olive);
+
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+
+    .section-heading h2 {
+      color: var(--brown);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(2.6rem, 5vw, 4.3rem);
+
+      font-weight: 600;
+
+      line-height: 1;
+
+      letter-spacing: -1px;
+    }
+
+
+    .section-heading p {
+      max-width: 400px;
+
+      color: var(--muted);
+
+      line-height: 1.75;
+    }
+
+
+    /* ========================================
+       MENU CARDS
+    ======================================== */
+
+    .menu-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 17px;
+    }
+
+
+    .menu-card {
+      position: relative;
+
+      min-height: 145px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 25px;
+
+      padding: 27px 28px;
+
+      overflow: hidden;
+
+      border:
+        1px solid
+        rgba(99, 53, 31, 0.10);
+
+      border-radius: 21px;
+
+      background: var(--cream-light);
+
+      transition:
+        transform 0.35s
+          cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+    }
+
+
+    /* LIGHT SWEEP */
+
+    .menu-card::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -130%;
+
+      width: 80%;
+      height: 100%;
+
+      background:
+
+        linear-gradient(
+          110deg,
+          transparent,
+          rgba(255,255,255,0.52),
+          transparent
+        );
+
+      transform: skewX(-15deg);
+
+      transition:
+        left 0.75s ease;
+
+      pointer-events: none;
+    }
+
+
+    .menu-card:hover::before {
+      left: 140%;
+    }
+
+
+    .menu-card:hover {
+      transform:
+        translateY(-6px);
+
+      border-color:
+        rgba(99, 53, 31, 0.24);
+
+      box-shadow:
+        var(--shadow-hover);
+    }
+
+
+    .menu-content {
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .menu-number {
+      margin-bottom: 7px;
+
+      color: var(--olive);
+
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+
+    .menu-card h3 {
+      margin-bottom: 4px;
+
+      color: var(--brown);
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 1.75rem;
+
+      font-weight: 600;
+    }
+
+
+    .menu-card p {
+      color: var(--muted);
+
+      font-size: 0.88rem;
+    }
+
+
+    /* ARROWS */
+
+    .arrow {
+      position: relative;
+
+      z-index: 2;
+
+      flex: 0 0 auto;
+
+      width: 52px;
+      height: 52px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--brown);
+
+      color: var(--cream-light);
+
+      font-size: 1.2rem;
+
+      box-shadow:
+        0 8px 18px
+        rgba(99, 53, 31, 0.16);
+
+      transition:
+        transform 0.35s
+          cubic-bezier(.2,.8,.2,1),
+        background 0.35s ease,
+        color 0.35s ease;
+    }
+
+
+    .menu-card:hover .arrow {
+      transform:
+        translateX(7px);
+
+      background:
+        var(--deep-olive);
+    }
+
+
+    /* FEATURED CARD */
+
+    .menu-card.featured {
+      background: var(--olive);
+
+      border-color: transparent;
+    }
+
+
+    .menu-card.featured
+    .menu-number,
+
+    .menu-card.featured h3 {
+      color: var(--cream-light);
+    }
+
+
+    .menu-card.featured p {
+      color:
+        rgba(255,255,255,0.76);
+    }
+
+
+    .menu-card.featured .arrow {
+      background: var(--brown);
+
+      color: var(--cream-light);
+    }
+
+
+    .menu-card.featured:hover {
+      background: var(--deep-olive);
+    }
+
+
+    .menu-card.featured:hover .arrow {
+      background: var(--cream-light);
+
+      color: var(--brown);
+    }
+
+
+    /* ========================================
+       BRAND MESSAGE
+    ======================================== */
+
+    .quote-strip {
+      margin:
+        0 5% 90px;
+
+      padding:
+        55px 35px;
+
+      border-radius: 28px;
+
+      background: var(--brown);
+
+      color: var(--cream-light);
+
+      text-align: center;
+    }
+
+
+    .quote-strip span {
+      display: block;
+
+      margin-bottom: 10px;
+
+      color: var(--sand);
+
+      font-size: 0.7rem;
+
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    .quote-strip h2 {
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(2.2rem, 5vw, 4rem);
+
+      font-weight: 500;
+
+      line-height: 1.1;
+    }
+
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+
+    footer {
+      padding:
+        55px 5%;
+
+      background:
+        var(--deep-olive);
+
+      color:
+        var(--cream-light);
+    }
+
+
+    .footer-inner {
+      display: flex;
+
+      align-items: center;
+
+      justify-content:
+        space-between;
+
+      gap: 50px;
+    }
+
+
+    .footer-brand {
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: flex-start;
+    }
+
+
+    .footer-logo {
+      display: block;
+
+      width: auto;
+
+      height: 62px;
+
+      max-width: 210px;
+
+      object-fit: contain;
+
+      margin-bottom: 14px;
+    }
+
+
+    .footer-brand p {
+      color:
+        rgba(255,255,255,0.62);
+
+      font-size: 0.72rem;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    .footer-info {
+      color:
+        rgba(255,255,255,0.72);
+
+      font-size: 0.86rem;
+
+      line-height: 2;
+
+      text-align: right;
+    }
+
+
+    .footer-location {
+      color: var(--cream-light);
+
+      font-weight: 600;
+    }
+
+
+    /* ========================================
+       TABLET
+    ======================================== */
+
+    @media (max-width: 900px) {
+
+      .hero-card {
+        grid-template-columns: 1fr;
+      }
+
+
+      .hero-content {
+        padding: 55px 35px;
+      }
+
+
+      .hero-image {
+        min-height: 420px;
+        height: 420px;
+      }
+
+
+      .intro {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+      }
+
+
+      .intro-image {
+        height: 390px;
+      }
+
+
+      .section-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+      }
+
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+
+      .footer-info {
+        text-align: left;
+      }
+
+    }
+
+
+    /* ========================================
+       MOBILE
+    ======================================== */
+
+    @media (max-width: 600px) {
+
+      .header {
+        min-height: 70px;
+
+        padding: 8px 5%;
+      }
+
+
+      .brand {
+        height: 52px;
+      }
+
+
+      .cafe-logo {
+        height: 48px;
+
+        max-width: 165px;
+      }
+
+
+      .explore-link > span:first-child {
+        display: none;
+      }
+
+
+      .top-arrow {
+        width: 40px;
+
+        height: 40px;
+      }
+
+
+      .hero {
+        padding-top: 17px;
+      }
+
+
+      .hero-card {
+        border-radius: 22px;
+      }
+
+
+      .hero-content {
+        padding:
+          48px 27px;
+      }
+
+
+      .hero-content h1 {
+        font-size: 3.15rem;
+
+        letter-spacing: -1px;
+      }
+
+
+      .hero-content p {
+        font-size: 0.93rem;
+      }
+
+
+      .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+      }
+
+
+      .primary-button,
+      .secondary-button {
+        width: 100%;
+      }
+
+
+      .hero-image {
+        height: 310px;
+
+        min-height: 310px;
+      }
+
+
+      .intro {
+        padding-top: 70px;
+      }
+
+
+      .intro-copy h2 {
+        font-size: 2.8rem;
+      }
+
+
+      .intro-image {
+        height: 320px;
+
+        border-radius: 22px;
+      }
+
+
+      .menu-section {
+        padding-top: 45px;
+      }
+
+
+      .section-heading h2 {
+        font-size: 2.7rem;
+      }
+
+
+      .menu-card {
+        min-height: 130px;
+
+        padding: 22px 20px;
+      }
+
+
+      .menu-card h3 {
+        font-size: 1.5rem;
+      }
+
+
+      .menu-card p {
+        max-width: 230px;
+
+        font-size: 0.82rem;
+      }
+
+
+      .arrow {
+        width: 46px;
+
+        height: 46px;
+      }
+
+
+      .quote-strip {
+        padding: 45px 22px;
+
+        margin-bottom: 65px;
+      }
+
+
+      footer {
+        padding:
+          48px 5%;
+      }
+
+
+      .footer-logo {
+        height: 55px;
+
+        max-width: 170px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="page">
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="header">
+
+
+      <a
+        href="index.html"
+        class="brand"
+        aria-label="Suds & Sips Café home"
+      >
+
+        <img
+          src="suds-and-sips-logo.png"
+          alt="Suds & Sips Café"
+          class="cafe-logo"
+        >
+
+      </a>
+
+
+      <a
+        href="#menu"
+        class="explore-link"
+      >
+
+        <span>
+          Explore Menu
+        </span>
+
+        <span class="top-arrow">
+          →
+        </span>
+
+      </a>
+
+
+    </header>
+
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <main>
+
+
+      <section class="hero">
+
+
+        <div class="hero-card">
+
+
+          <div class="hero-content">
+
+
+            <div class="eyebrow">
+              Coffee • Food • Good Company
+            </div>
+
+
+            <h1>
+              Sip slow.<br>
+              Stay awhile.
+            </h1>
+
+
+            <p>
+              Coffee, comfort food and refreshing drinks made
+              for easy mornings, long conversations and
+              everything in between.
+            </p>
+
+
+            <div class="hero-buttons">
+
+
+              <a
+                href="#menu"
+                class="primary-button"
+              >
+
+                Browse the Menu
+
+                <span>→</span>
+
+              </a>
+
+
+              <a
+                href="food.html"
+                class="secondary-button"
+              >
+
+                See Our Food
+
+              </a>
+
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- HERO PHOTO -->
+
+          <div class="hero-image">
+
+            <img
+              src="here-imae.jpg"
+              alt="Drinks at Suds & Sips Café"
+            >
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+
+      <!-- =====================================
+           INTRO
+      ====================================== -->
+
+      <section class="intro">
+
+
+        <div class="intro-copy">
+
+
+          <span class="small-title">
+            Made for everyday moments
+          </span>
+
+
+          <h2>
+            Good drinks.<br>
+            Better company.
+          </h2>
+
+
+          <p>
+            From espresso favorites and creamy sea salt sips
+            to refreshing drinks, comforting meals and sweet
+            treats, Suds & Sips is a place to slow down,
+            catch up and enjoy something good.
+          </p>
+
+
+        </div>
+
+
+
+        <!-- SECOND PHOTO -->
+
+        <div class="intro-image">
+
+
+          <img
+            src="cheese-ball.jpg"
+            alt="Cheese balls at Suds & Sips Café"
+          >
+
+
+          <div class="image-label">
+            Made with care in Iloilo
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+
+      <!-- =====================================
+           MENU CATEGORIES
+      ====================================== -->
+
+      <section
+        class="menu-section"
+        id="menu"
+      >
+
+
+        <div class="section-heading">
+
+
+          <div>
+
+
+            <span>
+              Explore the menu
+            </span>
+
+
+            <h2>
+              What are you craving?
+            </h2>
+
+
+          </div>
+
+
+          <p>
+            Pick a category and find your next
+            favorite drink, meal or sweet treat.
+          </p>
+
+
+        </div>
+
+
+
+        <div class="menu-grid">
+
+
+          <!-- ESPRESSO -->
+
+          <a
+            href="espresso.html"
+            class="menu-card featured"
+          >
+
+
+            <div class="menu-content">
+
+
+              <div class="menu-number">
+                01
+              </div>
+
+
+              <h3>
+                Espresso
+              </h3>
+
+
+              <p>
+                Classic coffee and signature favorites.
+              </p>
+
+
+            </div>
+
+
+            <div class="arrow">
+              →
+            </div>
+
+
+          </a>
+
+
+
+          <!-- NON COFFEE -->
+
+          <a
+            href="non-coffee.html"
+            class="menu-card"
+          >
+
+
+            <div class="menu-content">
+
+
+              <div class="menu-number">
+                02
+              </div>
+
+
+              <h3>
+                Non-Coffee
+              </h3>
+
+
+              <p>
+                Matcha, ube and creamy specialty drinks.
+              </p>
+
+
+            </div>
+
+
+            <div class="arrow">
+              →
+            </div>
+
+
+          </a>
+
+
+
+          <!-- SEA SALT SIPS -->
+
+          <a
+            href="sea-salt-sips.html"
+            class="menu-card"
+          >
+
+
+            <div class="menu-content">
+
+
+              <div class="menu-number">
+                03
+              </div>
+
+
+              <h3>
+                Sea Salt Sips
+              </h3>
+
+
+              <p>
+                Rich, smooth and topped with sea salt cream.
+              </p>
+
+
+            </div>
+
+
+            <div class="arrow">
+              →
+            </div>
+
+
+          </a>
+
+
+
+          <!-- QUENCHERS -->
+
+          <a
+            href="quenchers.html"
+            class="menu-card"
+          >
+
+
+            <div class="menu-content">
+
+
+              <div class="menu-number">
+                04
+              </div>
+
+
+              <h3>
+                Quenchers
+              </h3>
+
+
+              <p>
+                Bright, fruity and refreshing.
+              </p>
+
+
+            </div>
+
+
+            <div class="arrow">
+              →
+            </div>
+
+
+          </a>
+
+
+
+          <!-- FOOD -->
+
+          <a
+            href="food.html"
+            class="menu-card"
+          >
+
+
+            <div class="menu-content">
+
+
+              <div class="menu-number">
+                05
+              </div>
+
+
+              <h3>
+                Food
+              </h3>
+
+
+              <p>
+                Comforting meals made to pair
+                with your favorite drink.
+              </p>
+
+
+            </div>
+
+
+            <div class="arrow">
+              →
+            </div>
+
+
+          </a>
+
+
+
+          <!-- CAKES & CROFFLES -->
+
+          <a
+            href="cakes-croffles.html"
+            class="menu-card"
+          >
+
+
+            <div class="menu-content">
+
+
+              <div class="menu-number">
+                06
+              </div>
+
+
+              <h3>
+                Cakes & Croffles
+              </h3>
+
+
+              <p>
+                Sweet treats, cozy desserts
+                and crispy croffle favorites.
+              </p>
+
+
+            </div>
+
+
+            <div class="arrow">
+              →
+            </div>
+
+
+          </a>
+
+
+
+          <!-- FAVORITES -->
+
+          <a
+            href="espresso.html"
+            class="menu-card"
+          >
+
+
+            <div class="menu-content">
+
+
+              <div class="menu-number">
+                07
+              </div>
+
+
+              <h3>
+                Our Favorites
+              </h3>
+
+
+              <p>
+                Start with some of our
+                most-loved picks.
+              </p>
+
+
+            </div>
+
+
+            <div class="arrow">
+              →
+            </div>
+
+
+          </a>
+
+
+        </div>
+
+
+      </section>
+
+
+
+      <!-- =====================================
+           BRAND MESSAGE
+      ====================================== -->
+
+      <section class="quote-strip">
+
+
+        <span>
+          Suds & Sips
+        </span>
+
+
+        <h2>
+          Good drinks.<br>
+          Brighter days.
+        </h2>
+
+
+      </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer>
+
+
+      <div class="footer-inner">
+
+
+        <div class="footer-brand">
+
+
+          <img
+            src="suds-and-sips-logo.png"
+            alt="Suds & Sips Café"
+            class="footer-logo"
+          >
+
+
+          <p>
+            Coffee • Food • Good Company
+          </p>
+
+
+        </div>
+
+
+
+        <div class="footer-info">
+
+
+          <div class="footer-location">
+            Iloilo City • City of Love
+          </div>
+
+
+          <div>
+            11:00 AM – 9:00 PM
+          </div>
+
+
+          <div>
+            Instagram • Facebook • TikTok
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </footer>
+
 
   </div>
 
-  <div class="arrow">
-    →
-  </div>
+</body>
 
-</a>
-
-
-
-<!-- CAKES & CROFFLES -->
-
-<a
-  href="cakes-croffles.html"
-  class="menu-card"
->
-
-  <div class="menu-content">
-
-    <div class="menu-number">
-      06
-    </div>
-
-    <h3>
-      Cakes & Croffles
-    </h3>
-
-    <p>
-      Sweet treats, cozy desserts
-      and crispy croffle favorites.
-    </p>
-
-  </div>
-
-  <div class="arrow">
-    →
-  </div>
-
-</a>
-
-
-
-<!-- FAVORITES -->
-
-<a
-  href="espresso.html"
-  class="menu-card"
->
-
-  <div class="menu-content">
-
-    <div class="menu-number">
-      07
-    </div>
-
-    <h3>
-      Our Favorites
-    </h3>
-
-    <p>
-      Start with some of our
-      most-loved picks.
-    </p>
-
-  </div>
-
-  <div class="arrow">
-    →
-  </div>
-
-</a>
+</html>
