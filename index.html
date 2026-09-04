@@ -80,35 +80,30 @@
       align-items: center;
       justify-content: space-between;
 
-      padding: 16px 5%;
+      padding: 22px 5%;
 
-      background: rgba(243, 236, 220, 0.95);
-      border-bottom: 1px solid rgba(99, 53, 31, 0.08);
+      background: rgba(243, 236, 220, 0.94);
+      border-bottom: 1px solid rgba(99, 53, 31, 0.10);
 
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
     }
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
+    .brand h1 {
+      font-family: "Playfair Display", serif;
+      color: var(--brown);
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 7px;
     }
 
-    .cafe-logo {
-      width: auto;
-      height: 62px;
-      max-width: 190px;
-      object-fit: contain;
-
-      transition:
-        transform 0.35s ease,
-        opacity 0.35s ease;
-    }
-
-    .brand:hover .cafe-logo {
-      transform: scale(1.025);
-      opacity: 0.92;
+    .brand span {
+      display: block;
+      color: var(--deep-olive);
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 2.7px;
+      text-transform: uppercase;
     }
 
     .explore-link {
@@ -129,7 +124,6 @@
       place-items: center;
 
       border-radius: 50%;
-
       background: var(--brown);
       color: var(--cream-light);
 
@@ -161,7 +155,6 @@
       grid-template-columns: 1.05fr 0.95fr;
 
       overflow: hidden;
-
       border-radius: 30px;
 
       background: var(--deep-olive);
@@ -190,7 +183,7 @@
       text-transform: uppercase;
     }
 
-    .hero-content h1 {
+    .hero-content h2 {
       max-width: 620px;
 
       margin-bottom: 24px;
@@ -258,11 +251,9 @@
 
     .secondary-button:hover {
       transform: translateY(-3px);
+
       background: rgba(255, 255, 255, 0.10);
     }
-
-
-    /* HERO IMAGE */
 
     .hero-image {
       position: relative;
@@ -325,7 +316,7 @@
       text-transform: uppercase;
     }
 
-    .intro-copy h2 {
+    .intro-copy h3 {
       margin-bottom: 22px;
 
       color: var(--brown);
@@ -352,7 +343,6 @@
       height: 430px;
 
       overflow: hidden;
-
       border-radius: 27px;
 
       box-shadow: var(--shadow-soft);
@@ -419,7 +409,7 @@
       text-transform: uppercase;
     }
 
-    .section-heading h2 {
+    .section-heading h3 {
       color: var(--brown);
 
       font-family: "Playfair Display", serif;
@@ -438,9 +428,7 @@
     }
 
 
-    /* ========================================
-       MENU GRID
-    ======================================== */
+    /* MENU GRID */
 
     .menu-grid {
       display: grid;
@@ -474,8 +462,7 @@
         background 0.35s ease;
     }
 
-
-    /* PREMIUM LIGHT SWEEP */
+    /* premium light sweep */
 
     .menu-card::before {
       content: "";
@@ -528,7 +515,7 @@
       letter-spacing: 2px;
     }
 
-    .menu-card h3 {
+    .menu-card h4 {
       margin-bottom: 4px;
 
       color: var(--brown);
@@ -573,11 +560,12 @@
 
     .menu-card:hover .arrow {
       transform: translateX(7px);
+
       background: var(--deep-olive);
     }
 
 
-    /* FEATURED ESPRESSO CARD */
+    /* FEATURED CARD */
 
     .menu-card.featured {
       background: var(--olive);
@@ -585,7 +573,8 @@
     }
 
     .menu-card.featured .menu-number,
-    .menu-card.featured h3 {
+    .menu-card.featured h4,
+    .menu-card.featured p {
       color: var(--cream-light);
     }
 
@@ -609,7 +598,7 @@
 
 
     /* ========================================
-       BRAND STRIP
+       QUOTE STRIP
     ======================================== */
 
     .quote-strip {
@@ -638,7 +627,7 @@
       text-transform: uppercase;
     }
 
-    .quote-strip h2 {
+    .quote-strip h3 {
       font-family: "Playfair Display", serif;
       font-size: clamp(2.2rem, 5vw, 4rem);
       font-weight: 500;
@@ -664,20 +653,18 @@
       gap: 50px;
     }
 
-    .footer-logo {
-      width: auto;
-      height: 68px;
-      max-width: 190px;
+    .footer-brand h3 {
+      margin-bottom: 8px;
 
-      object-fit: contain;
-
-      margin-bottom: 14px;
+      font-family: "Playfair Display", serif;
+      font-size: 2.4rem;
+      font-weight: 600;
     }
 
     .footer-brand p {
       color: rgba(255,255,255,0.65);
 
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
@@ -687,7 +674,6 @@
 
       font-size: 0.84rem;
       line-height: 1.9;
-
       text-align: right;
     }
 
@@ -748,12 +734,16 @@
     @media (max-width: 600px) {
 
       .header {
-        padding: 13px 5%;
+        padding: 18px 5%;
       }
 
-      .cafe-logo {
-        height: 48px;
-        max-width: 145px;
+      .brand h1 {
+        font-size: 1.45rem;
+      }
+
+      .brand span {
+        font-size: 0.52rem;
+        letter-spacing: 1.8px;
       }
 
       .explore-link > span:first-child {
@@ -777,7 +767,7 @@
         padding: 48px 27px;
       }
 
-      .hero-content h1 {
+      .hero-content h2 {
         font-size: 3.15rem;
         letter-spacing: -1px;
       }
@@ -787,8 +777,8 @@
       }
 
       .hero-buttons {
-        flex-direction: column;
         align-items: stretch;
+        flex-direction: column;
       }
 
       .primary-button,
@@ -805,7 +795,7 @@
         padding-top: 70px;
       }
 
-      .intro-copy h2 {
+      .intro-copy h3 {
         font-size: 2.8rem;
       }
 
@@ -818,7 +808,7 @@
         padding-top: 45px;
       }
 
-      .section-heading h2 {
+      .section-heading h3 {
         font-size: 2.7rem;
       }
 
@@ -828,7 +818,7 @@
         padding: 22px 20px;
       }
 
-      .menu-card h3 {
+      .menu-card h4 {
         font-size: 1.5rem;
       }
 
@@ -852,11 +842,6 @@
         padding-top: 48px;
         padding-bottom: 48px;
       }
-
-      .footer-logo {
-        height: 58px;
-        max-width: 160px;
-      }
     }
 
   </style>
@@ -869,30 +854,19 @@
 
 
     <!-- =====================================
-         MINIMALIST HEADER
+         HEADER
     ====================================== -->
 
     <header class="header">
 
-      <a href="index.html" class="brand">
-
-        <img
-          src="suds-and-sips-logo-1.jpg"
-          alt="Suds & Sips Café"
-          class="cafe-logo"
-        >
-
-      </a>
-
+      <div class="brand">
+        <h1>Suds & Sips</h1>
+        <span>Coffee • Food • Good Company</span>
+      </div>
 
       <a href="#menu" class="explore-link">
-
         <span>Explore Menu</span>
-
-        <span class="top-arrow">
-          →
-        </span>
-
+        <span class="top-arrow">→</span>
       </a>
 
     </header>
@@ -907,39 +881,30 @@
 
       <div class="hero-card">
 
-
         <div class="hero-content">
 
           <div class="eyebrow">
-            Coffee • Food • Good Company
+            Suds & Sips Café
           </div>
 
-          <h1>
+          <h2>
             Sip slow.<br>
             Stay awhile.
-          </h1>
+          </h2>
 
           <p>
             Coffee, comfort food and refreshing drinks made for easy mornings,
             long conversations and everything in between.
           </p>
 
-
           <div class="hero-buttons">
 
-            <a
-              href="#menu"
-              class="primary-button"
-            >
+            <a href="#menu" class="primary-button">
               Browse the Menu
               <span>→</span>
             </a>
 
-
-            <a
-              href="food.html"
-              class="secondary-button"
-            >
+            <a href="food.html" class="secondary-button">
               See Our Food
             </a>
 
@@ -948,9 +913,7 @@
         </div>
 
 
-
-        <!-- HERO IMAGE -->
-
+        <!-- YOUR FIRST IMAGE -->
         <div class="hero-image">
 
           <img
@@ -960,7 +923,6 @@
 
         </div>
 
-
       </div>
 
     </section>
@@ -968,11 +930,10 @@
 
 
     <!-- =====================================
-         SECOND IMAGE / INTRO
+         INTRO + SECOND IMAGE
     ====================================== -->
 
     <section class="intro">
-
 
       <div class="intro-copy">
 
@@ -980,10 +941,10 @@
           Made for everyday moments
         </span>
 
-        <h2>
+        <h3>
           Good drinks.<br>
           Better company.
-        </h2>
+        </h3>
 
         <p>
           From espresso favorites and creamy sea salt sips to refreshing
@@ -994,7 +955,7 @@
       </div>
 
 
-
+      <!-- YOUR SECOND IMAGE -->
       <div class="intro-image">
 
         <img
@@ -1008,23 +969,17 @@
 
       </div>
 
-
     </section>
 
 
 
     <!-- =====================================
-         MENU
+         MENU CATEGORIES
     ====================================== -->
 
-    <section
-      class="menu-section"
-      id="menu"
-    >
-
+    <section class="menu-section" id="menu">
 
       <div class="section-heading">
-
 
         <div>
 
@@ -1032,17 +987,15 @@
             Explore the menu
           </span>
 
-          <h2>
+          <h3>
             What are you craving?
-          </h2>
+          </h3>
 
         </div>
-
 
         <p>
           Pick a category and find your next favorite drink or meal.
         </p>
-
 
       </div>
 
@@ -1064,9 +1017,9 @@
               01
             </div>
 
-            <h3>
+            <h4>
               Espresso
-            </h3>
+            </h4>
 
             <p>
               Classic coffee and signature favorites.
@@ -1095,9 +1048,9 @@
               02
             </div>
 
-            <h3>
+            <h4>
               Non-Coffee
-            </h3>
+            </h4>
 
             <p>
               Matcha, ube and creamy specialty drinks.
@@ -1126,9 +1079,9 @@
               03
             </div>
 
-            <h3>
+            <h4>
               Sea Salt Sips
-            </h3>
+            </h4>
 
             <p>
               Rich, smooth and topped with sea salt cream.
@@ -1157,9 +1110,9 @@
               04
             </div>
 
-            <h3>
+            <h4>
               Quenchers
-            </h3>
+            </h4>
 
             <p>
               Bright, fruity and refreshing.
@@ -1188,9 +1141,9 @@
               05
             </div>
 
-            <h3>
+            <h4>
               Food
-            </h3>
+            </h4>
 
             <p>
               Comforting meals made to pair with your favorite drink.
@@ -1219,9 +1172,9 @@
               06
             </div>
 
-            <h3>
+            <h4>
               Our Favorites
-            </h3>
+            </h4>
 
             <p>
               Start with some of our most-loved picks.
@@ -1243,7 +1196,7 @@
 
 
     <!-- =====================================
-         BRAND MESSAGE
+         BRAND STRIP
     ====================================== -->
 
     <section class="quote-strip">
@@ -1252,10 +1205,10 @@
         Suds & Sips
       </span>
 
-      <h2>
+      <h3>
         Good drinks.<br>
         Brighter days.
-      </h2>
+      </h3>
 
     </section>
 
@@ -1269,14 +1222,11 @@
 
       <div class="footer-inner">
 
-
         <div class="footer-brand">
 
-          <img
-            src="suds-and-sips-logo-1.jpg"
-            alt="Suds & Sips Café"
-            class="footer-logo"
-          >
+          <h3>
+            Suds & Sips
+          </h3>
 
           <p>
             Coffee • Food • Good Company
@@ -1294,7 +1244,6 @@
           Instagram • Facebook • TikTok
 
         </div>
-
 
       </div>
 
